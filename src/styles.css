@@ -5,7 +5,7 @@ body {
 title {
 	color: rgba(78,204,163,1);
 }
-
+/* 
 .mediaViewInfo {
 		--web-view-name: Home Screen;
 		--web-view-id: Home_Screen;
@@ -39,10 +39,10 @@ title {
 	@keyframes  {
 	
 	
-	} */
+	} 
 	#RECIPE_RECOMMENDER_ {
 		left: 20px;
-		/* top: -11px; */
+		/* top: -11px; 
 		position: absolute;
 		overflow: visible;
 		width: auto;
@@ -527,4 +527,4 @@ title {
 		left: 110px;
 		top: 0px;
 		transform: matrix(1,0,0,1,0,0);
-	}
+	} */
