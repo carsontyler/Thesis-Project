@@ -1,5 +1,9 @@
 body {
 	background-color: #232931;
+	color: rgba(238,238,238,1);
+}
+title {
+	color: rgba(78,204,163,1);
 }
 
 .mediaViewInfo {
