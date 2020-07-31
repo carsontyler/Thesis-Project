@@ -1,21 +1,19 @@
 import React, { useEffect, useState, Fragment } from "react"
-import * as react from "react";
-import api from '../../api'
-import {Container, Col, Row, Card, CardHeader, CardTitle, CardBody, CardImg} from "reactstrap"
+import { View } from "react-native"
+import { Container, Col, Row, Card, CardHeader, CardTitle, CardBody, CardImg } from "reactstrap"
 import _ from 'lodash'
 import "./homepage.css"
-import { RecipeList } from "../../components/RecipeList"
 import { RecipeComp } from "../../components/RecipeComp"
 
 const breakfast_recipes = require('./../../data/breakfast_recipes.json')
 const dessert_recipes = require('./../../data/dessert_recipes.json')
 const dinner_recipes = require('./../../data/dinner_recipes.json')
 const gluten_free_recipes = require('./../../data/gluten_free_recipes.json')
-const side_recipes = require('./../../data/side_recipes.json')
-
+const side_recipes = require('./../../data/side_recipes.json') 
+ 
 interface Recipe {
   id: number,
-  type: string,
+  type: string, 
   recipe: string,
   title: string,
   most_similar: [number],
@@ -46,44 +44,42 @@ const HomePage: React.FC = () => {
 
   return (
     <Fragment>
-      <Container>
-      <Row>
-        <Col>
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <View style={{flex: 1, flexDirection: 'column'}}>
           <Card className="card-chart">
-            <CardHeader>
-              <CardTitle tag="h3">
-                <i className="tim-icons icon-bell-55 text-info" />{" "}
-                Recipe Recommender
-              </CardTitle>
-            </CardHeader>
-            <CardBody>{mainRecipes ? (
-              <div>
-                <div id="recipe1" onClick={() => handleClick(mainRecipes[0])}>
-                  <span>1. { mainRecipes[0].title }</span>
+              <CardHeader>
+                <CardTitle tag="h3">
+                  <i className="tim-icons icon-bell-55 text-info" />{" "}
+                  Recipe Recommender
+                </CardTitle>
+              </CardHeader>
+              <CardBody>{mainRecipes ? (
+                <div>
+                  <div id="recipe1" onClick={() => handleClick(mainRecipes[0])}>
+                    <span>1. { mainRecipes[0].title }</span>
+                  </div>
+                  <div id="recipe2" onClick={() => handleClick(mainRecipes[1])}>
+                    <span>2. { mainRecipes[1].title }</span>
+                  </div>
+                  <div id="recipe3" onClick={() => handleClick(mainRecipes[2])}>
+                    <span>3. { mainRecipes[2].title }</span>
+                  </div>
+                  <div id="recipe4" onClick={() => handleClick(mainRecipes[3])}>
+                    <span>4. { mainRecipes[3].title }</span>
+                  </div>
+                  <div id="recipe5" onClick={() => handleClick(mainRecipes[4])}>
+                    <span>5. { mainRecipes[4].title }</span>
+                  </div>
                 </div>
-                <div id="recipe2" onClick={() => handleClick(mainRecipes[1])}>
-                  <span>2. { mainRecipes[1].title }</span>
-                </div>
-                <div id="recipe3" onClick={() => handleClick(mainRecipes[2])}>
-                  <span>3. { mainRecipes[2].title }</span>
-                </div>
-                <div id="recipe4" onClick={() => handleClick(mainRecipes[3])}>
-                  <span>4. { mainRecipes[3].title }</span>
-                </div>
-                <div id="recipe5" onClick={() => handleClick(mainRecipes[4])}>
-                  <span>5. { mainRecipes[4].title }</span>
-                </div>
-              </div>
-              )
-              : (<div>No Recipes Found</div>)}
-            </CardBody>
-          </Card>
-        </Col>
-        <Col>
+                )
+                : (<div>No Recipes Found</div>)}
+              </CardBody>
+            </Card>
+        </View>  
+        <View style={{flex: 1, flexDirection: 'column'}}>
           <RecipeComp recipe={currentRecipe} />
-        </Col>
-      </Row>
-      </Container>
+        </View>
+      </View>
     </Fragment>
   )
   
