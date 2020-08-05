@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react"
 import _ from 'lodash'
-import "./homepage.css"
 // import { HomePageComp } from "../../components/HomePageComp"
 import { View, Button } from "react-native"
 import {Card, CardHeader, CardTitle, CardBody, Col, CardImg, Row} from "reactstrap"
 import { RecipeComp } from "./../../components/RecipeComp";
 import { RecipeRaterComp } from "./../../components/RecipeRaterComp"
+import { SurveyComp } from "../../components/SurveyComp"
 import "./homepage.css"
 
 export interface Recipe {
@@ -33,7 +33,7 @@ export const HomePage: React.FC = () => {
   const [allRecipes, setRecipes] = useState<Recipe[]>();
   const [mainRecipes, setMainRecipes] = useState<Recipe[]>();
   let [currentRecipe, setCurrentRecipe] = useState<Recipe>();
-  let [groupId, setGroupRecipe] = useState("");
+  let [groupId, setGroupId] = useState(0);
   let [index, setIndex] = useState(0);
     
   interface Recipe {
@@ -54,21 +54,57 @@ export const HomePage: React.FC = () => {
   }
  
   let selectRecipeClick = () => {
-    setIndex(++index);
+    let temp = ++index;
+    if (temp > 1){
+      temp = 0;
+      setGroupId(++groupId);
+    }
+    setIndex(temp);
   }
 
   useEffect(() => {
-    setRecipes(dinner_recipes);
+    let recipes:Recipe[] = [];
+
+    if (groupId === 0)
+      recipes = breakfast_recipes;
+    else if (groupId === 1)
+      recipes = dessert_recipes;
+    else if (groupId === 2)
+      recipes = dinner_recipes;
+    else if (groupId === 3)
+      recipes = gluten_free_recipes;
+    else if (groupId === 4)
+      recipes = side_recipes;
+
+    setRecipes(recipes);
+
     let mainRecipes = _.filter(dinner_recipes, (recipe: Recipe) => {
         return recipe.type === "main";
     });
-    setGroupRecipe(varToString(dinner_recipes));
     setMainRecipes(mainRecipes);
     setCurrentRecipe(mainRecipes[0]);
   }, []);
 
   useEffect(() => {
-    console.log('reload plz oh and heres the index' + index);
+    let recipes:Recipe[] = [];
+
+    if (groupId === 0)
+      recipes = breakfast_recipes;
+    else if (groupId === 1)
+      recipes = dessert_recipes;
+    else if (groupId === 2)
+      recipes = dinner_recipes;
+    else if (groupId === 3)
+      recipes = gluten_free_recipes;
+    else if (groupId === 4)
+      recipes = side_recipes;
+
+    setRecipes(recipes);
+    let mainRecipes = _.filter(recipes, (recipe: Recipe) => {
+        return recipe.type === "main";
+    });
+    setMainRecipes(mainRecipes);
+    setCurrentRecipe(mainRecipes[0]);
   }, [index])
   
   return currentRecipe ? (index === 0 ? (    
@@ -119,7 +155,7 @@ export const HomePage: React.FC = () => {
         <RecipeComp recipe={currentRecipe} />
       </View>
       <View style={{flex: 1, flexDirection: 'column'}}>
-        <RecipeRaterComp recipe={currentRecipe} selectRecipeClick={selectRecipeClick}/>
+        <SurveyComp submitSurvey={selectRecipeClick}/>
       </View>
     </View>
   </Fragment> : (<div></div>)) : (<div></div>);  

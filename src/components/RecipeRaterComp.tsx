@@ -52,7 +52,9 @@ export const RecipeRaterComp: React.FC<RecipeRaterCompProps> = (props) => {
         <View style={{flex: 1, flexDirection: 'column'}}>
           <RecipeComp recipe={currentRecipe} />
         </View>
-        
+        <View style={{flex: 1, flexDirection: 'column'}}>
+          
+        </View>
       </View>
     </Fragment>
   ) : (<div></div>);   
