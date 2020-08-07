@@ -34,7 +34,7 @@ export const HomePage: React.FC = () => {
   const [mainRecipes, setMainRecipes] = useState<Recipe[]>();
   let [currentRecipe, setCurrentRecipe] = useState<Recipe>();
   let [groupId, setGroupId] = useState(0);
-  let [index, setIndex] = useState(0);
+  let [index, setIndex] = useState(-1);
     
   interface Recipe {
     id: number,
@@ -107,7 +107,36 @@ export const HomePage: React.FC = () => {
     setCurrentRecipe(mainRecipes[0]);
   }, [index])
   
-  return currentRecipe ? (index === 0 ? (    
+  return index === -1 ? (
+    <Fragment>
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <Card className="card-chart">
+          <CardHeader>
+            <CardTitle tag="h3">
+                <i className="tim-icons icon-bell-55 text-info" />{" "}
+                Directions and Disclosure
+            </CardTitle>
+          </CardHeader>
+          <CardBody>
+            <p>
+              Thank you for participating in Carson's Thesis Project Experiment! 
+            </p>
+            <h3>Directions</h3>
+            <p>
+              In this experiment, you will be selecting recipes based on a given scenario and then rating recommendations based on your selection. You can select recipes by clicking on them.
+            <br/>
+              Five (5) scenarios will be presented. You should select the recipe you think is the best. There is no right answer, simply pick the one you think looks the best, would be the most delicious, is the easiest to cook - whatever. 
+            <br/>
+              Upon selecting a recipe, you will be presented with ten (10) recommended recipes. You can cycle through the recipes by clicking on them. 
+            <br/>
+              You will then fill out a survey related to the recommended recipes and the recommendation system as a whole. You will rate these from 1-5 by clicking on the stars. 
+            </p>
+          </CardBody>
+        </Card>
+      </View>
+    </Fragment>
+   ) :
+  currentRecipe ? (index === 0 ? (    
     <Fragment>
       <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{flex: 1, flexDirection: 'column'}}>
