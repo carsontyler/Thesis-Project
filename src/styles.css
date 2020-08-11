@@ -5,6 +5,16 @@ body {
 title {
 	color: rgba(78,204,163,1);
 }
+
+.main_div {
+	height: 100vh;
+	overflow: auto;
+}
+.recipe_div {
+	height: 75vh;
+	overflow: auto;
+}
+
 /* 
 .mediaViewInfo {
 		--web-view-name: Home Screen;
