@@ -1,11 +1,10 @@
 {
-  "name": "chakra-ui-javascript",
+  "name": "thesis",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
-    "@chakra-ui/core": "0.7.0",
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
     "@types/bootstrap": "^4.5.0",
@@ -25,6 +24,7 @@
     "jquery-csv": "^1.0.11",
     "lodash": "^4.17.19",
     "papaparse": "^5.2.0",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-art": "^16.13.1",
     "react-dom": "^16.13.1",

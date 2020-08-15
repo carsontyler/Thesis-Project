@@ -1,18 +1,19 @@
 body {
-	background-color: #232931;
-	color: rgba(238,238,238,1);
+  background-color: #232931;
+  color: rgba(238, 238, 238, 1);
+  font-family: Dubai;
 }
 title {
-	color: rgba(78,204,163,1);
+  color: rgba(78, 204, 163, 1);
 }
 
 .main_div {
-	height: 100vh;
-	overflow: auto;
+  height: 100vh;
+  overflow: auto;
 }
 .recipe_div {
-	height: 75vh;
-	overflow: auto;
+  height: 75vh;
+  overflow: auto;
 }
 
 /* 
