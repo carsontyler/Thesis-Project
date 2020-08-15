@@ -71,14 +71,21 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
               )}
             </CardBody>
           </Card>
-          <Button
-            onPress={props.selectRecipeClick}
-            title="Select Recipe"
-            color="#4ECCA3"
-          />
+          <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "column" }}>
+              <Button
+                onPress={props.selectRecipeClick}
+                title="Choose Recipe"
+                color="#4ECCA3"
+              />
+            </View>
+            <View style={{ flex: 5, flexDirection: "column" }}/>
+          </View>
         </View>
         <View style={{ flex: 1, flexDirection: "column" }}>
-          <RecipeComp recipe={props.currentRecipe} />
+          <div className="main_div">
+            <RecipeComp recipe={props.currentRecipe} />
+          </div>
         </View>
       </View>
     </View>
