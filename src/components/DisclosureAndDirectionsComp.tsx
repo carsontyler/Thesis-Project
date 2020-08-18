@@ -30,7 +30,7 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
       <View style={{ flex: 1, flexDirection: "row" }}>
         <Card className="card-chart">
           <CardHeader>
-            <CardTitle tag="h3">
+            <CardTitle tag="h1">
               <i className="tim-icons icon-bell-55 text-info" /> Directions and
               Disclosure
             </CardTitle>
@@ -39,9 +39,11 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
             <View>
               <p>
                 Thank you for participating in Carson's Thesis Project
-                Experiment!
+                Study!
+                <br />
+                Please only continue if you have returned your Informed Consent form. 
               </p>
-              <h3>Directions</h3>
+              <h2>Directions</h2>
               <p>
                 In this experiment, you will be selecting recipes based on a
                 given scenario and then rating recommendations based on your
@@ -62,6 +64,8 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
                 You will then fill out a survey related to the recommended
                 recipes and the recommendation system as a whole. You will rate
                 these from 1-5 by clicking on the stars.
+                <br />
+                If you encounter any issues in this study, please contact Carson at 385.244.6611.
               </p>
               <form>
                 <label>
@@ -70,11 +74,10 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
                     type="checkbox"
                     onChange={props.directionsCheckboxChange}
                   />
-                  I understand these directions and accept the terms and
-                  conditions.
+                  I understand these directions and have returned the Informed Consent form
                   <br />
                 </label>
-                <View style={{ flex: 1, flexDirection: "row" }}>
+                <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
                   <View style={{ flex: 1, flexDirection: "column" }}>
                     <Button
                       onPress={props.handleSubmit}

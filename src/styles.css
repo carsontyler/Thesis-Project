@@ -1,15 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+
 body {
   background-color: #232931;
   color: rgba(238, 238, 238, 1);
-  font-family: Dubai;
+  font-family: Saraburn, sans-serif;
+  font-size: 125%;
+  padding: 1em;
 }
 title {
   color: rgba(78, 204, 163, 1);
 }
 
 .main_div {
-  height: 100vh;
+  height: 85vh;
   overflow: auto;
+  padding: 1em;
 }
 .recipe_div {
   height: 75vh;

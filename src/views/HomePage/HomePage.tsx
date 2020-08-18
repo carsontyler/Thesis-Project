@@ -49,6 +49,12 @@ export const HomePage: React.FC = () => {
   let [certain_recipes, setCertainRecipes] = useState<Recipe[]>([]);
   let [uncertain_recipes, setUncertainRecipes] = useState<Recipe[]>([]);
 
+  const scenarios = ["You are preparing breakfast for your family one morning. Of the options presented, choose the recipe that you are most likely to make.",
+                     "You have been invited to a work party and asked to bring a dessert. Of the options presented, chose the recipe that you are most likely to bring.",
+                     "You have been invited to a neighborhood block party and asked to bring a main dish for dinner. Of the options presented, choose the recipe that you are most likely to bring.",
+                     "You are hosting a get-together with your friends, one of whom is gluten-free. Of the options presented, choose the recipe that you are most likely to make.",
+                     "You are attending a New Year's Eve party and are asked to bring a side dish. Of the options presented, choose the recipe that you are most likely to bring."]
+
   interface Recipe {
     id: number;
     type: string;
@@ -174,6 +180,7 @@ export const HomePage: React.FC = () => {
         handleClick={handleClick}
         mainRecipes={mainRecipes}
         selectRecipeClick={selectRecipeClick}
+        scenario={scenarios[groupId]}
       />
     ) : index === 1 ? (
       <SurveyPageComp
