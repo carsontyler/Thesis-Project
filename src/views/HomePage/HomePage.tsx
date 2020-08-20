@@ -5,6 +5,7 @@ import "./homepage.css";
 import { DisclosureAndDirectionsComp } from "../../components/DisclosureAndDirectionsComp";
 import { MainPageComp } from "../../components/MainPageComp";
 import { SurveyPageComp } from "../../components/SurveyPageComp";
+var mysql = require('mysql')
 
 export interface Recipe {
   id: number;
@@ -31,12 +32,18 @@ export const HomePage: React.FC = () => {
   let [currentRecipe, setCurrentRecipe] = useState<Recipe>();
   let [tempCurrentRecipe, setTempCurrentRecipe] = useState<Recipe>();
   let [groupId, setGroupId] = useState(0);
-  let [index, setIndex] = useState(-1);
+  let [index, setIndex] = useState(2); ///// TODO: CHANGE THIS TO -1
   let [directionsAccepted, setDirectionsAccepted] = useState(false);
 
   let [similar_recipes, setSimilarRecipes] = useState<Recipe[]>([]);
   let [certain_recipes, setCertainRecipes] = useState<Recipe[]>([]);
   let [uncertain_recipes, setUncertainRecipes] = useState<Recipe[]>([]);
+  var con = mysql.createConnection({
+    host: "http://sql3.freemysqlhosting.ne:3306/",
+    user: "sql3361360",
+    password: "kd2SpXjI24",
+    database: "sql3361360",
+  });
 
   const scenarios = ["You are preparing breakfast for your family one morning. Of the options presented, choose the recipe that you are most likely to make.",
                      "You have been invited to a work party and asked to bring a dessert. Of the options presented, chose the recipe that you are most likely to bring.",
@@ -145,6 +152,19 @@ export const HomePage: React.FC = () => {
           return rcp.type === "uncertain";
         })
       );
+    }
+
+    if (index === 2) { 
+      con.connect(function(err: any) {
+        if (err) throw err;
+
+        console.log("Connected!");
+        var sql = "SELECT * FROM Data"; /////////////// TODO: CHANGE THIS
+        con.squery(sql, function (erro: any, result: any) {
+          if (erro) throw erro;
+          console.log("Query success! " + result);
+        })
+      })
     }
   };
 
