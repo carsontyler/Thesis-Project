@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import { View, Button } from "react-native";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  Col,
-  CardImg,
-  Row,
-} from "reactstrap";
-import { RecipeComp } from "./../../components/RecipeComp";
-import { SurveyComp } from "../../components/SurveyComp";
 import "./homepage.css";
 import { DisclosureAndDirectionsComp } from "../../components/DisclosureAndDirectionsComp";
 import { MainPageComp } from "../../components/MainPageComp";
@@ -94,6 +83,7 @@ export const HomePage: React.FC = () => {
 
   const handleSubmit = (event: any) => {
     setIndex(0);
+    if (groupId === 5) setIndex(2);
   };
 
   const selectRecipeClick = () => {
@@ -193,7 +183,7 @@ export const HomePage: React.FC = () => {
           tempCurrentRecipe ? tempCurrentRecipe : currentRecipe
         }
       />
-    ) : index === 2 ? (
+    ) : index > 1 ? (
       <View>
         <span>Thank you for participating!</span>
       </View>

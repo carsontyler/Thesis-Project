@@ -26,7 +26,7 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
     <View>
       <View style={{ flex: 1, flexDirection: "row" }}>
         <View style={{ flex: 1, flexDirection: "column" }}>
-          <div style={{padding: '1em'}}>
+          <div style={{ padding: '1em' }}>
             <Card className="card-chart">
               <CardHeader>
                 <CardTitle tag="h2">
@@ -69,8 +69,8 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                     </div>
                   </div>
                 ) : (
-                  <div>No Recipes Found</div>
-                )}
+                    <div>No Recipes Found</div>
+                  )}
               </CardBody>
             </Card>
             <View style={{ flex: 1, flexDirection: "row" }}>
@@ -81,25 +81,24 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                   color="#4ECCA3"
                 />
               </View>
-              <View style={{ flex: 4, flexDirection: "column" }}/>
+              <View style={{ flex: 4, flexDirection: "column" }} />
             </View>
             <View style={{ flex: 1, flexDirection: "row" }} >
-          <Card className="card-chart">
-            <CardHeader>
-              <CardTitle tag="h2">
-                <i className="tim-icons icon-bell-55 text-info" /> Scenario
-              </CardTitle>
-            </CardHeader>
-            <CardBody>
-              <p>{props.scenario}</p>
-            </CardBody>
-          </Card>
-          
-          </View>
+              <Card className="card-chart">
+                <CardHeader>
+                  <CardTitle tag="h2">
+                    <i className="tim-icons icon-bell-55 text-info" /> Scenario
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <p>{props.scenario}</p>
+                </CardBody>
+              </Card>
+            </View>
           </div>
         </View>
         <View style={{ flex: 1, flexDirection: "column" }}>
-          <div className="main_div">
+          <div className="recipe_div">
             <RecipeComp recipe={props.currentRecipe} />
           </div>
         </View>

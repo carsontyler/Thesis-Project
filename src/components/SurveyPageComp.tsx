@@ -1,15 +1,5 @@
 import React from "react";
 import { View, Button } from "react-native";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  Col,
-  CardImg,
-  Row,
-} from "reactstrap";
-import StarRatingComponent from "react-star-rating-component";
 import { Recipe } from "../views/HomePage/HomePage";
 import { RecipeComp } from "./RecipeComp";
 import { SurveyComp } from "./SurveyComp";
@@ -27,14 +17,14 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
   return (
     <View>
       <div>
-        <View style={{ flex: 1, flexDirection: "row" }}>
+        <View style={{ flex: 1, flexDirection: "row"}}>
           <View style={{ flex: 1, flexDirection: "column" }}>
             <View style={{ flex: 3, flexDirection: "row" }}>
               <div className="recipe_div">
                 <RecipeComp recipe={props.tempCurrentRecipe} />
               </div>
             </View>
-            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "row", padding: '10px' }}>
               <View style={{ flex: 1, flexDirection: "column" }}>
                 <div
                   id="recipe1"
