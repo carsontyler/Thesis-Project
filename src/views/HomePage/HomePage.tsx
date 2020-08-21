@@ -155,16 +155,16 @@ export const HomePage: React.FC = () => {
     }
 
     if (index === 2) { 
-      con.connect(function(err: any) {
-        if (err) throw err;
+      // con.connect(function(err: any) {
+        // if (err) throw err;
 
         console.log("Connected!");
         var sql = "SELECT * FROM Data"; /////////////// TODO: CHANGE THIS
-        con.squery(sql, function (erro: any, result: any) {
+        con.query(sql, function (erro: any, result: any) {
           if (erro) throw erro;
           console.log("Query success! " + result);
         })
-      })
+      // })
     }
   };
 
