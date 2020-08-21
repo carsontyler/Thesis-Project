@@ -1,10 +1,15 @@
+import "reflect-metadata";
 import React, { useEffect, useState } from "react";
-import _ from "lodash";
 import { View, Button } from "react-native";
-import "./homepage.css";
 import { DisclosureAndDirectionsComp } from "../../components/DisclosureAndDirectionsComp";
 import { MainPageComp } from "../../components/MainPageComp";
 import { SurveyPageComp } from "../../components/SurveyPageComp";
+import {createConnection} from "typeorm";
+import {Data} from "./../../entity/Data";
+import {Compensation} from "./../../entity/Compensation";
+import _ from "lodash";
+import "./homepage.css";
+import api from '../../api'
 var mysql = require('mysql')
 
 export interface Recipe {
@@ -40,7 +45,7 @@ export const HomePage: React.FC = () => {
   let [uncertain_recipes, setUncertainRecipes] = useState<Recipe[]>([]);
   var con = mysql.createConnection({
     host: "http://sql3.freemysqlhosting.ne:3306/",
-    user: "sql3361360",
+    data: "sql3361360",
     password: "kd2SpXjI24",
     database: "sql3361360",
   });
@@ -155,16 +160,10 @@ export const HomePage: React.FC = () => {
     }
 
     if (index === 2) { 
-      // con.connect(function(err: any) {
-        // if (err) throw err;
-
-        console.log("Connected!");
-        var sql = "SELECT * FROM Data"; /////////////// TODO: CHANGE THIS
-        con.query(sql, function (erro: any, result: any) {
-          if (erro) throw erro;
-          console.log("Query success! " + result);
-        })
-      // })
+      api.post('postdata', "datatopost").then((data) => {
+        const json = JSON.parse(data.data.fileData);
+        console.log(json);
+      })     
     }
   };
 

@@ -1,0 +1,24 @@
+{
+   "type": "mysql",
+   "host": "http://sql3.freemysqlhosting.net/",
+   "port": 3306,
+   "username": "sql3361360",
+   "password": "kd2SpXjI24",
+   "database": "sql3361360",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "src/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+}
