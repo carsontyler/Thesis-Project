@@ -11,6 +11,7 @@ interface SurveyPageProps {
   currentRecipe: Recipe;
   handleClick: any;
   submitSurvey: any;
+  groupdId: number;
 }
 
 export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
@@ -97,6 +98,7 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
                 submitSurvey={props.submitSurvey}
                 recipe={props.currentRecipe}
                 similarRecipes={props.allRecipes}
+                groupId={props.groupdId}
               />
             </div>
           </View>

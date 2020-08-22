@@ -10,6 +10,7 @@ export interface SurvepCompProps {
   submitSurvey: any;
   recipe: Recipe;
   similarRecipes: Recipe[];
+  groupId: number;
 }
 
 export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
@@ -40,6 +41,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
   let [rating25, setRating25] = useState(0);
   let [rating26, setRating26] = useState(0);
   let [rating27, setRating27] = useState(0);
+  let [json, setJson] = useState({});
 
   const onStarclick1 = (event: any) => {
     setRating1(event);
@@ -122,6 +124,42 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
   const onStarclick27 = (event: any) => {
     setRating27(event);
   };
+
+  useEffect(() => {}, []);
+  
+  useEffect(() => {
+    setJson(
+      {
+        OverallRating: rating1,
+        RelatedRating: rating2,
+        Accuracy1: rating8,
+        Accuracy2: rating9,
+        Accuracy3: rating10,
+        Accuracy4: rating11,
+        Accuracy5: rating12, 
+        Accuracy6: rating13,
+        Accuracy7: rating14,
+        Accuracy8: rating15,
+        Accuracy9: rating16, 
+        Accuracy10: rating17, 
+        Unexpceted1: rating18,
+        Unexpceted2: rating19, 
+        Unexpceted3: rating20,
+        Unexpceted4: rating21,
+        Unexpceted5: rating22,
+        Unexpceted6: rating23,
+        Unexpceted7: rating24,
+        Unexpceted8: rating25, 
+        Unexpceted9: rating26,
+        Unexpceted10: rating27,
+        ReuseRating: rating5,
+        TrustRating: rating6,
+        SatisfactionRating: rating7,
+        GroupID: props.groupId,
+        RecipeID: props.recipe.id
+      }
+    );
+  }, [rating1, rating2, rating3, rating4, rating5, rating6, rating7, rating8, rating9, rating10, rating11, rating12, rating13, rating14, rating15, rating16, rating17, rating18, rating19, rating20, rating21, rating22, rating23, rating24, rating25, rating26, rating27]);
 
   return (
     <div style={{ overflow: "auto" }}>
@@ -426,7 +464,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
 
             <View style={{ flex: 1, flexDirection: "row" }}>
               <Button
-                onPress={props.submitSurvey}
+                onPress={props.submitSurvey(json)}
                 title="Submit Survey"
                 color="#4ECCA3"
               />

@@ -4,3 +4,7 @@ node_modules/
 build/
 tmp/
 temp/
+/build
+/node_modules
+package-lock.json
+/build

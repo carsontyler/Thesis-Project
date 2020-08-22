@@ -37,8 +37,9 @@ export const HomePage: React.FC = () => {
   let [currentRecipe, setCurrentRecipe] = useState<Recipe>();
   let [tempCurrentRecipe, setTempCurrentRecipe] = useState<Recipe>();
   let [groupId, setGroupId] = useState(0);
-  let [index, setIndex] = useState(2); ///// TODO: CHANGE THIS TO -1
+  let [index, setIndex] = useState(-1); ///// TODO: CHANGE THIS TO -1
   let [directionsAccepted, setDirectionsAccepted] = useState(false);
+  let [data, setData] = useState([{}])
 
   let [similar_recipes, setSimilarRecipes] = useState<Recipe[]>([]);
   let [certain_recipes, setCertainRecipes] = useState<Recipe[]>([]);
@@ -113,7 +114,8 @@ export const HomePage: React.FC = () => {
     setDirectionsAccepted(event.target.checked);
   };
 
-  const submitSurvey = (event: any) => {
+  const submitSurvey = (event: any, json: any) => {
+    data.push(json);
     selectRecipeClick();
   };
 
@@ -160,9 +162,9 @@ export const HomePage: React.FC = () => {
     }
 
     if (index === 2) { 
-      api.post('postdata', "datatopost").then((data) => {
-        const json = JSON.parse(data.data.fileData);
-        console.log(json);
+      api.post('postdata', data).then((data) => {
+        //const json = JSON.parse(data.data);
+        console.log(data.data); 
       })     
     }
   };
@@ -201,6 +203,7 @@ export const HomePage: React.FC = () => {
         tempCurrentRecipe={
           tempCurrentRecipe ? tempCurrentRecipe : currentRecipe
         }
+        groupdId={groupId}
       />
     ) : index > 1 ? (
       <View>
