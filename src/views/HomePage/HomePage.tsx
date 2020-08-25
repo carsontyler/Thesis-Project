@@ -1,16 +1,11 @@
-import "reflect-metadata";
 import React, { useEffect, useState } from "react";
 import { View, Button } from "react-native";
 import { DisclosureAndDirectionsComp } from "../../components/DisclosureAndDirectionsComp";
 import { MainPageComp } from "../../components/MainPageComp";
 import { SurveyPageComp } from "../../components/SurveyPageComp";
-import {createConnection} from "typeorm";
-import {Data} from "./../../entity/Data";
-import {Compensation} from "./../../entity/Compensation";
 import _ from "lodash";
 import "./homepage.css";
 import api from '../../api'
-var mysql = require('mysql')
 
 export interface Recipe {
   id: number;
@@ -28,6 +23,7 @@ export interface Recipe {
 const breakfast_recipes = require("./../../data/breakfast_recipes.json");
 const dessert_recipes = require("./../../data/dessert_recipes.json");
 const dinner_recipes = require("./../../data/dinner_recipes.json");
+const drink_recipes = require("./../../data/drink_recipes.json");
 const gluten_free_recipes = require("./../../data/gluten_free_recipes.json");
 const side_recipes = require("./../../data/side_recipes.json");
 
@@ -44,16 +40,11 @@ export const HomePage: React.FC = () => {
   let [similar_recipes, setSimilarRecipes] = useState<Recipe[]>([]);
   let [certain_recipes, setCertainRecipes] = useState<Recipe[]>([]);
   let [uncertain_recipes, setUncertainRecipes] = useState<Recipe[]>([]);
-  var con = mysql.createConnection({
-    host: "http://sql3.freemysqlhosting.ne:3306/",
-    data: "sql3361360",
-    password: "kd2SpXjI24",
-    database: "sql3361360",
-  });
 
   const scenarios = ["You are preparing breakfast for your family one morning. Of the options presented, choose the recipe that you are most likely to make.",
                      "You have been invited to a work party and asked to bring a dessert. Of the options presented, chose the recipe that you are most likely to bring.",
                      "You have been invited to a neighborhood block party and asked to bring a main dish for dinner. Of the options presented, choose the recipe that you are most likely to bring.",
+                     "You are looking for a drink recipe to make for a treat one day. Of the options presented, choose the recipe that you are most likely to make.",
                      "You are hosting a get-together with your friends, one of whom is gluten-free. Of the options presented, choose the recipe that you are most likely to make.",
                      "You are attending a New Year's Eve party and are asked to bring a side dish. Of the options presented, choose the recipe that you are most likely to bring."]
 
@@ -96,7 +87,6 @@ export const HomePage: React.FC = () => {
 
   const handleSubmit = (event: any) => {
     setIndex(0);
-    if (groupId === 5) setIndex(2);
   };
 
   const selectRecipeClick = () => {
@@ -105,7 +95,7 @@ export const HomePage: React.FC = () => {
     if (temp > 1) {
       temp = 0;
       setGroupId(++groupId);
-      if (groupId === 5) temp = 2;
+      if (groupId === 6) temp = 2;
     }
     setIndex(temp);
   };
@@ -114,7 +104,7 @@ export const HomePage: React.FC = () => {
     setDirectionsAccepted(event.target.checked);
   };
 
-  const submitSurvey = (event: any, json: any) => {
+  const submitSurvey = (json: any) => {
     data.push(json);
     selectRecipeClick();
   };
@@ -125,8 +115,9 @@ export const HomePage: React.FC = () => {
     if (groupId === 0) recipes = breakfast_recipes;
     else if (groupId === 1) recipes = dessert_recipes;
     else if (groupId === 2) recipes = dinner_recipes;
-    else if (groupId === 3) recipes = gluten_free_recipes;
-    else if (groupId === 4) recipes = side_recipes;
+    else if (groupId === 3) recipes = drink_recipes;
+    else if (groupId === 4) recipes = gluten_free_recipes;
+    else if (groupId === 5) recipes = side_recipes;
 
     setRecipes(recipes);
 
@@ -140,10 +131,10 @@ export const HomePage: React.FC = () => {
     if (currentRecipe && currentRecipe.most_similar.length > 0) {
       setSimilarRecipes(
         _.filter(recipes, (rcp: Recipe) => {
-          console.log(rcp.id);
-          console.log(
-            currentRecipe ? currentRecipe.most_similar.includes(rcp.id) : false
-          );
+          // console.log(rcp.id);
+          // console.log(
+          //   currentRecipe ? currentRecipe.most_similar.includes(rcp.id) : false
+          // );
           return currentRecipe
             ? currentRecipe.most_similar.includes(rcp.id)
             : false;
@@ -164,7 +155,7 @@ export const HomePage: React.FC = () => {
     if (index === 2) { 
       api.post('postdata', data).then((data) => {
         //const json = JSON.parse(data.data);
-        console.log(data.data); 
+        console.log(data); 
       })     
     }
   };
@@ -205,13 +196,13 @@ export const HomePage: React.FC = () => {
         }
         groupdId={groupId}
       />
-    ) : index > 1 ? (
-      <View>
-        <span>Thank you for participating!</span>
-      </View>
     ) : (
       <div>Current Recipe isn't set. Please contact Carson (385) 244-6611</div>
     )
+  ) : index > 1 ? (
+    <View>
+      <span>Thank you for participating!</span>
+    </View>
   ) : (
     <div>Index doesn't equal -1. Please contact Carson (385) 244-6611</div>
   );
