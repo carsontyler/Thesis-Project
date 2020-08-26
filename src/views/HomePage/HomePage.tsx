@@ -33,7 +33,7 @@ export const HomePage: React.FC = () => {
   let [currentRecipe, setCurrentRecipe] = useState<Recipe>();
   let [tempCurrentRecipe, setTempCurrentRecipe] = useState<Recipe>();
   let [groupId, setGroupId] = useState(0);
-  let [index, setIndex] = useState(-1); ///// TODO: CHANGE THIS TO -1
+  let [index, setIndex] = useState(2); ///// TODO: CHANGE THIS TO -1
   let [directionsAccepted, setDirectionsAccepted] = useState(false);
   let [data, setData] = useState([{}])
 
@@ -153,11 +153,51 @@ export const HomePage: React.FC = () => {
     }
 
     if (index === 2) { 
-      api.post('postdata', data).then((data) => {
-        //const json = JSON.parse(data.data);
-        console.log(data); 
-      })     
-    }
+      // api.get('hello').then((data) => {
+      //   console.log(data);
+      // });
+
+      try {
+        data.push( {
+          "OverallRating": 2,
+          "RelatedRating": 2,
+          "Accuracy1": 1,
+          "Accuracy2": 1,
+          "Accuracy3": 1,
+          "Accuracy4": 1,
+          "Accuracy5": 1,
+          "Accuracy6": 1,
+          "Accuracy7": 1,
+          "Accuracy8": 1,
+          "Accuracy9": 1,
+          "Accuracy10": 1,
+          "Unexpceted1": 1,
+          "Unexpceted2": 1,
+          "Unexpceted3": 1,
+          "Unexpceted4": 1,
+          "Unexpceted5": 1,
+          "Unexpceted6": 1,
+          "Unexpceted7": 1,
+          "Unexpceted8": 1,
+          "Unexpceted9": 1,
+          "Unexpceted10": 1,
+          "ReuseRating": 1,
+          "TrustRating": 1,
+          "SatisfactionRating": 1,
+          "GroupID": 1,
+          "RecipeID": 1
+        });
+
+        api.post('postdata', data).catch((error) => {
+          console.log(error);
+        }).then((data) => {
+          //const json = JSON.parse(data.data);
+          console.log(data); 
+        });
+      } catch (error) {
+        console.log("should be here :)");
+      }
+    } 
   };
 
   useEffect(() => {
