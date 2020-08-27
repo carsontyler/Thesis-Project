@@ -16,8 +16,8 @@ export interface SurvepCompProps {
 export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
   let [rating1, setRating1] = useState(3);
   let [rating2, setRating2] = useState(3);
-  let [rating3, setRating3] = useState(3);
-  let [rating4, setRating4] = useState(3);
+  // let [rating3, setRating3] = useState(3);
+  // let [rating4, setRating4] = useState(3);
   let [rating5, setRating5] = useState(3);
   let [rating6, setRating6] = useState(3);
   let [rating7, setRating7] = useState(3);
@@ -49,12 +49,12 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
   const onStarclick2 = (event: any) => {
     setRating2(event);
   };
-  const onStarclick3 = (event: any) => {
-    setRating3(event);
-  };
-  const onStarclick4 = (event: any) => {
-    setRating4(event);
-  };
+  // const onStarclick3 = (event: any) => {
+  //   setRating3(event);
+  // };
+  // const onStarclick4 = (event: any) => {
+  //   setRating4(event);
+  // };
   const onStarclick5 = (event: any) => {
     setRating5(event);
   };
@@ -168,7 +168,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
   
   useEffect(() => {
     setJsonState();
-  }, [rating1, rating2, rating3, rating4, rating5, rating6, rating7, rating8, rating9, rating10, rating11, rating12, rating13, rating14, rating15, rating16, rating17, rating18, rating19, rating20, rating21, rating22, rating23, rating24, rating25, rating26, rating27]);
+  }, [rating1, rating2, rating5, rating6, rating7, rating8, rating9, rating10, rating11, rating12, rating13, rating14, rating15, rating16, rating17, rating18, rating19, rating20, rating21, rating22, rating23, rating24, rating25, rating26, rating27]);
 
   return (
     <div style={{ overflow: "auto" }}>

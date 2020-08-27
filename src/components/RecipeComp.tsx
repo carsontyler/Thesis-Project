@@ -17,7 +17,6 @@ import {
 import StarRatingComponent from "react-star-rating-component";
 import "./../styles/recipeCompStyles.css";
 
-
 interface RecipeCompProps {
   recipe: any;
 }
@@ -25,64 +24,80 @@ interface RecipeCompProps {
 export const RecipeComp: React.FC<RecipeCompProps> = (props) => {
   const ingredients = props.recipe
     ? props.recipe.ingredients
-      .substr(2, props.recipe.ingredients.length - 4)
-      .split("', '")
+        .substr(2, props.recipe.ingredients.length - 4)
+        .split("', '")
     : null;
   const directions = props.recipe
     ? props.recipe.directions
-      .substr(2, props.recipe.directions.length - 4)
-      .split("', '")
+        .substr(2, props.recipe.directions.length - 4)
+        .split("', '")
     : null;
 
-  const [activeTab, setActiveTab] = useState('1');
+  const [activeTab, setActiveTab] = useState("1");
 
   const toggle = (tab: any) => {
     if (activeTab !== tab) setActiveTab(tab);
-  }
+  };
 
   return props.recipe ? (
-    <div style={{ background: "rgba(57,62,70,1)", textAlign: 'center' }}>
-      <Card className="card-chart text-center" style={{ padding: '1px' }}>
+    <div style={{ background: "rgba(57,62,70,1)", overflow: 'hidden' }}>
+      <Card className="card-chart text-center" style={{ padding: "1px" }}>
         <CardHeader>
-          <CardTitle tag="h2">
+          <CardTitle tag="h2" style={{textAlign: 'center'}}>
             <i className="tim-icons icon-bell-55 text-info" />{" "}
             {props.recipe.title}
           </CardTitle>
         </CardHeader>
-        <CardImg variant="top" src={props.recipe.image} alt="No image available!" />
+        <CardImg
+          top
+          width="100%"
+          src={props.recipe.image}
+          alt="No image available!"
+          style={{justifyContent: 'center'}}
+        />
         <CardBody>
-          <View style={{ flex: 1, flexDirection: "row", justifyContent: 'center' }}>
+          <View
+            style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}
+          >
             <StarRatingComponent
               name="rating"
               value={props.recipe.ratings}
               editing={false}
             />
           </View>
-          <View style={{ flex: 1, flexDirection: "row", justifyContent: 'center' }}>
-            <Nav tabs style={{ justifyContent: 'center' }}>
-              <NavItem style={{ borderColor: '#e9ecef #e9ecef #dee2e6' }}>
+          <View
+            style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}
+          >
+            <Nav tabs style={{ justifyContent: "center" }}>
+              <NavItem className="nav-item-one">
                 <NavLink
-                  className='tab1'
-                  onClick={() => { toggle('1'); }}
+                  className="tab1"
+                  onClick={() => {
+                    toggle("1");
+                  }}
                 >
-                  <p style={{ color: 'rgba(78, 204, 163, 1)', fontWeight: 'bold' }}>
-                    Ingredients
+                  <p>
+                    <span className="recipe-tab">Ingredients</span>
                   </p>
                 </NavLink>
               </NavItem>
-              <NavItem>
+              <NavItem className="nav-item-one">
                 <NavLink
-                  className='tab2'
-                  onClick={() => { toggle('2'); }}
+                  className="tab2"
+                  onClick={() => {
+                    toggle("2");
+                  }}
                 >
-                  <p style={{ color: 'rgba(78, 204, 163, 1)', fontWeight: 'bold' }}>
-                    Directions
-                </p>
+                  <p>
+                    <span className="recipe-tab">Directions</span>
+                  </p>
                 </NavLink>
               </NavItem>
             </Nav>
           </View>
-          <View style={{ flex: 1, flexDirection: "row", justifyContent: 'center' }}>
+          <View
+            style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}
+          >
             <TabContent activeTab={activeTab}>
               <TabPane tabId="1">
                 <Row>
@@ -110,10 +125,10 @@ export const RecipeComp: React.FC<RecipeCompProps> = (props) => {
               </TabPane>
             </TabContent>
           </View>
-        </CardBody> 
+        </CardBody>
       </Card>
-    </div >
+    </div>
   ) : (
-      <div></div>
-    );
+    <div></div>
+  );
 };

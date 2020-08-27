@@ -5,11 +5,7 @@ import {
   CardHeader,
   CardTitle,
   CardBody,
-  Col,
-  CardImg,
-  Row,
 } from "reactstrap";
-import StarRatingComponent from "react-star-rating-component";
 import { Recipe } from "../views/HomePage/HomePage";
 import { RecipeComp } from "./RecipeComp";
 
@@ -41,31 +37,31 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                       id="recipe1"
                       onClick={() => props.handleClick(props.mainRecipes[0])}
                     >
-                      <span>1. {props.mainRecipes[0].title}</span>
+                      1. <span className="recipe-item">{props.mainRecipes[0].title}</span>
                     </div>
                     <div
                       id="recipe2"
                       onClick={() => props.handleClick(props.mainRecipes[1])}
                     >
-                      <span>2. {props.mainRecipes[1].title}</span>
+                      2. <span className="recipe-item">{props.mainRecipes[1].title}</span>
                     </div>
                     <div
                       id="recipe3"
                       onClick={() => props.handleClick(props.mainRecipes[2])}
                     >
-                      <span>3. {props.mainRecipes[2].title}</span>
+                      3. <span className="recipe-item">{props.mainRecipes[2].title}</span>
                     </div>
                     <div
                       id="recipe4"
                       onClick={() => props.handleClick(props.mainRecipes[3])}
                     >
-                      <span>4. {props.mainRecipes[3].title}</span>
+                      4. <span className="recipe-item">{props.mainRecipes[3].title}</span>
                     </div>
                     <div
                       id="recipe5"
                       onClick={() => props.handleClick(props.mainRecipes[4])}
                     >
-                      <span>5. {props.mainRecipes[4].title}</span>
+                      5. <span className="recipe-item">{props.mainRecipes[4].title}</span>
                     </div>
                   </div>
                 ) : (

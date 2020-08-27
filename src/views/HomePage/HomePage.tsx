@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Button } from "react-native";
+import { View } from "react-native";
 import { DisclosureAndDirectionsComp } from "../../components/DisclosureAndDirectionsComp";
 import { MainPageComp } from "../../components/MainPageComp";
 import { SurveyPageComp } from "../../components/SurveyPageComp";
@@ -33,9 +33,9 @@ export const HomePage: React.FC = () => {
   let [currentRecipe, setCurrentRecipe] = useState<Recipe>();
   let [tempCurrentRecipe, setTempCurrentRecipe] = useState<Recipe>();
   let [groupId, setGroupId] = useState(0);
-  let [index, setIndex] = useState(2); ///// TODO: CHANGE THIS TO -1
+  let [index, setIndex] = useState(-1); ///// TODO: CHANGE THIS TO -1
   let [directionsAccepted, setDirectionsAccepted] = useState(false);
-  let [data, setData] = useState([{}])
+  let [data] = useState([{}])
 
   let [similar_recipes, setSimilarRecipes] = useState<Recipe[]>([]);
   let [certain_recipes, setCertainRecipes] = useState<Recipe[]>([]);
@@ -159,7 +159,7 @@ export const HomePage: React.FC = () => {
 
       try {
         data.push( {
-          "OverallRating": 2,
+          "OverallRating": 5,
           "RelatedRating": 2,
           "Accuracy1": 1,
           "Accuracy2": 1,
@@ -189,13 +189,15 @@ export const HomePage: React.FC = () => {
         });
 
         api.post('postdata', data).catch((error) => {
+          console.log("error");
           console.log(error);
         }).then((data) => {
+          console.log("then");
           //const json = JSON.parse(data.data);
           console.log(data); 
         });
       } catch (error) {
-        console.log("should be here :)");
+        console.log("shouldn't be here :(");
       }
     } 
   };
@@ -236,6 +238,10 @@ export const HomePage: React.FC = () => {
         }
         groupdId={groupId}
       />
+    ) : index > 1 ? (
+      <View>
+        <span>Thank you for participating!</span>
+      </View>
     ) : (
       <div>Current Recipe isn't set. Please contact Carson (385) 244-6611</div>
     )

@@ -1,15 +1,6 @@
 import React, { useEffect } from "react";
 import { View, Button } from "react-native";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  Col,
-  CardImg,
-  Row,
-} from "reactstrap";
-import StarRatingComponent from "react-star-rating-component";
+import { Card, CardHeader, CardTitle, CardBody } from "reactstrap";
 
 interface DisclosureAndDirectionsProps {
   directionsCheckboxChange: any;
@@ -38,10 +29,10 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
           <CardBody>
             <View>
               <p>
-                Thank you for participating in Carson's Thesis Project
-                Study!
+                Thank you for participating in Carson's Thesis Project Study!
                 <br />
-                Please only continue if you have returned your Informed Consent form. 
+                Please only continue if you have returned your Informed Consent
+                form.
               </p>
               <h2>Directions</h2>
               <p>
@@ -65,7 +56,8 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
                 recipes and the recommendation system as a whole. You will rate
                 these from 1-5 by clicking on the stars.
                 <br />
-                If you encounter any issues in this study, please contact Carson at 385.244.6611.
+                If you encounter any issues in this study, please contact Carson
+                at 385.244.6611.
               </p>
               <form>
                 <label>
@@ -74,10 +66,13 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
                     type="checkbox"
                     onChange={props.directionsCheckboxChange}
                   />
-                  I understand these directions and have returned the Informed Consent form
+                  I understand these directions and have returned the Informed
+                  Consent form
                   <br />
                 </label>
-                <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
+                <View
+                  style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}
+                >
                   <View style={{ flex: 1, flexDirection: "column" }}>
                     <Button
                       onPress={props.handleSubmit}

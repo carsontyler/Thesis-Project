@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Button } from "react-native";
+import { View } from "react-native";
 import { Recipe } from "../views/HomePage/HomePage";
 import { RecipeComp } from "./RecipeComp";
 import { SurveyComp } from "./SurveyComp";
