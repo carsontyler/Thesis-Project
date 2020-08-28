@@ -20,42 +20,42 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
       <div>
         <View style={{ flex: 1, flexDirection: "row"}}>
           <View style={{ flex: 1, flexDirection: "column" }}>
-            <View style={{ flex: 3, flexDirection: "row" }}>
+            <View style={{ flex: 2, flexDirection: "row", justifyContent: 'center' }}>
               <div className="recipe_div">
                 <RecipeComp recipe={props.tempCurrentRecipe} />
               </div>
             </View>
-            <View style={{ flex: 1, flexDirection: "row", padding: '10px' }}>
+            <View style={{ flex: 1, flexDirection: "row", padding: '10px', alignSelf: 'center' }}>
               <View style={{ flex: 1, flexDirection: "column" }}>
                 <div
                   id="recipe1"
                   onClick={() => props.handleClick(props.similarRecipes[0])}
                 >
-                  <span>1. {props.similarRecipes[0].title}</span>
+                  <span>1. <span className="recipe-item">{props.similarRecipes[0].title}</span></span>
                 </div>
                 <div
                   id="recipe2"
                   onClick={() => props.handleClick(props.similarRecipes[1])}
                 >
-                  <span>2. {props.similarRecipes[1].title}</span>
+                  <span>2. <span className="recipe-item">{props.similarRecipes[1].title}</span></span>
                 </div>
                 <div
                   id="recipe3"
                   onClick={() => props.handleClick(props.similarRecipes[2])}
                 >
-                  <span>3. {props.similarRecipes[2].title}</span>
+                  <span>3. <span className="recipe-item">{props.similarRecipes[2].title}</span></span>
                 </div>
                 <div
                   id="recipe4"
                   onClick={() => props.handleClick(props.similarRecipes[3])}
                 >
-                  <span>4. {props.similarRecipes[3].title}</span>
+                  <span>4. <span className="recipe-item">{props.similarRecipes[3].title}</span></span>
                 </div>
                 <div
                   id="recipe5"
                   onClick={() => props.handleClick(props.similarRecipes[4])}
                 >
-                  <span>5. {props.similarRecipes[4].title}</span>
+                  <span>5. <span className="recipe-item">{props.similarRecipes[4].title}</span></span>
                 </div>
               </View>
               <View style={{ flex: 1, flexDirection: "column" }}>
@@ -63,31 +63,31 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
                   id="recipe6"
                   onClick={() => props.handleClick(props.similarRecipes[5])}
                 >
-                  <span>6. {props.similarRecipes[5].title}</span>
+                  <span>6. <span className="recipe-item">{props.similarRecipes[5].title}</span></span>
                 </div>
                 <div
                   id="recipe7"
                   onClick={() => props.handleClick(props.similarRecipes[6])}
                 >
-                  <span>7. {props.similarRecipes[6].title}</span>
+                  <span>7. <span className="recipe-item">{props.similarRecipes[6].title}</span></span>
                 </div>
                 <div
                   id="recipe8"
                   onClick={() => props.handleClick(props.similarRecipes[7])}
                 >
-                  <span>8. {props.similarRecipes[7].title}</span>
+                  <span>8. <span className="recipe-item">{props.similarRecipes[7].title}</span></span>
                 </div>
                 <div
                   id="recipe9"
                   onClick={() => props.handleClick(props.similarRecipes[8])}
                 >
-                  <span>9. {props.similarRecipes[8].title}</span>
+                  <span>9. <span className="recipe-item">{props.similarRecipes[8].title}</span></span>
                 </div>
                 <div
                   id="recipe10"
                   onClick={() => props.handleClick(props.similarRecipes[9])}
                 >
-                  <span>10. {props.similarRecipes[9].title}</span>
+                  <span>10. <span className="recipe-item">{props.similarRecipes[9].title}</span></span>
                 </div>
               </View>
             </View>

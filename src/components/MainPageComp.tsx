@@ -93,7 +93,7 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
             </View>
           </div>
         </View>
-        <View style={{ flex: 1, flexDirection: "column" }}>
+        <View style={{ flex: 1, flexDirection: "column", alignItems: 'center' }}>
           <div className="recipe_div">
             <RecipeComp recipe={props.currentRecipe} />
           </div>

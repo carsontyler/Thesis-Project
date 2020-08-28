@@ -18,9 +18,9 @@ title {
   padding: 1em;
 }
 .recipe_div {
-  height: 70vh;
+  /* height: 70vh; */
   overflow: auto;
-  width:100%;
+  width:80%;
 }
 .recipe-item {
   cursor: pointer;
