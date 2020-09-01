@@ -11,6 +11,7 @@ export interface SurvepCompProps {
   recipe: Recipe;
   similarRecipes: Recipe[];
   groupId: number;
+  displayNum: number;
 }
 
 export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
@@ -139,33 +140,34 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
         Accuracy2: rating9,
         Accuracy3: rating10,
         Accuracy4: rating11,
-        Accuracy5: rating12, 
+        Accuracy5: rating12,
         Accuracy6: rating13,
         Accuracy7: rating14,
         Accuracy8: rating15,
-        Accuracy9: rating16, 
-        Accuracy10: rating17, 
+        Accuracy9: rating16,
+        Accuracy10: rating17,
         Unexpceted1: rating18,
-        Unexpceted2: rating19, 
+        Unexpceted2: rating19,
         Unexpceted3: rating20,
         Unexpceted4: rating21,
         Unexpceted5: rating22,
         Unexpceted6: rating23,
         Unexpceted7: rating24,
-        Unexpceted8: rating25, 
+        Unexpceted8: rating25,
         Unexpceted9: rating26,
         Unexpceted10: rating27,
         ReuseRating: rating5,
         TrustRating: rating6,
         SatisfactionRating: rating7,
         GroupID: props.groupId,
-        RecipeID: props.recipe.id
+        RecipeID: props.recipe.id,
+        DisplayNum: props.displayNum
       }
     );
   }
 
-  useEffect(() => {}, []);
-  
+  useEffect(() => { }, []);
+
   useEffect(() => {
     setJsonState();
   }, [rating1, rating2, rating5, rating6, rating7, rating8, rating9, rating10, rating11, rating12, rating13, rating14, rating15, rating16, rating17, rating18, rating19, rating20, rating21, rating22, rating23, rating24, rating25, rating26, rating27]);
@@ -191,6 +193,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 name="rating1"
                 value={rating1}
                 onStarClick={onStarclick1}
+                starColor="rgba(78, 204, 163, 1)"
+                emptyStarColor="rgba(100, 100, 100, 1)"
               />
             </View>
             <View style={{ flex: 1, flexDirection: "row" }}>
@@ -204,6 +208,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 name="rating2"
                 value={rating2}
                 onStarClick={onStarclick2}
+                starColor="rgba(78, 204, 163, 1)"
+                emptyStarColor="rgba(100, 100, 100, 1)"
               />
             </View>
             <View style={{ flex: 1, flexDirection: "row" }}>
@@ -224,6 +230,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating8"
                     value={rating8}
                     onStarClick={onStarclick8}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
                 <View style={{ flex: 1, flexDirection: "row" }}>
@@ -234,6 +242,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating9"
                     value={rating9}
                     onStarClick={onStarclick9}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
                 <View style={{ flex: 1, flexDirection: "row" }}>
@@ -244,6 +254,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating10"
                     value={rating10}
                     onStarClick={onStarclick10}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
                 <View style={{ flex: 1, flexDirection: "row" }}>
@@ -254,6 +266,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating11"
                     value={rating11}
                     onStarClick={onStarclick11}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
                 <View style={{ flex: 1, flexDirection: "row" }}>
@@ -264,58 +278,74 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating12"
                     value={rating12}
                     onStarClick={onStarclick12}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[5].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating13"
-                    value={rating13}
-                    onStarClick={onStarclick13}
-                  />
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[6].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating14"
-                    value={rating14}
-                    onStarClick={onStarclick14}
-                  />
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[7].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating15"
-                    value={rating15}
-                    onStarClick={onStarclick15}
-                  />
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[8].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating16"
-                    value={rating16}
-                    onStarClick={onStarclick16}
-                  />
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[9].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating17"
-                    value={rating17}
-                    onStarClick={onStarclick17}
-                  />
-                </View>
+                {props.similarRecipes.length > 6 &&
+                  <div>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[5].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating13"
+                        value={rating13}
+                        onStarClick={onStarclick13}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[6].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating14"
+                        value={rating14}
+                        onStarClick={onStarclick14}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[7].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating15"
+                        value={rating15}
+                        onStarClick={onStarclick15}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[8].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating16"
+                        value={rating16}
+                        onStarClick={onStarclick16}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[9].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating17"
+                        value={rating17}
+                        onStarClick={onStarclick17}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                  </div>
+                }
               </View>
             </View>
 
@@ -336,6 +366,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating18"
                     value={rating18}
                     onStarClick={onStarclick18}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
                 <View style={{ flex: 1, flexDirection: "row" }}>
@@ -346,6 +378,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating19"
                     value={rating19}
                     onStarClick={onStarclick19}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
                 <View style={{ flex: 1, flexDirection: "row" }}>
@@ -356,6 +390,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating20"
                     value={rating20}
                     onStarClick={onStarclick20}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
                 <View style={{ flex: 1, flexDirection: "row" }}>
@@ -366,6 +402,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating21"
                     value={rating21}
                     onStarClick={onStarclick21}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
                 <View style={{ flex: 1, flexDirection: "row" }}>
@@ -376,58 +414,74 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                     name="rating22"
                     value={rating22}
                     onStarClick={onStarclick22}
+                    starColor="rgba(78, 204, 163, 1)"
+                    emptyStarColor="rgba(100, 100, 100, 1)"
                   />
                 </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[5].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating23"
-                    value={rating23}
-                    onStarClick={onStarclick23}
-                  />
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[6].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating24"
-                    value={rating24}
-                    onStarClick={onStarclick24}
-                  />
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[7].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating25"
-                    value={rating25}
-                    onStarClick={onStarclick25}
-                  />
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[8].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating26"
-                    value={rating26}
-                    onStarClick={onStarclick26}
-                  />
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <span>{props.similarRecipes[9].title}</span>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <StarRatingComponent
-                    name="rating27"
-                    value={rating27}
-                    onStarClick={onStarclick27}
-                  />
-                </View>
+                {props.similarRecipes.length > 6 &&
+                  <div>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[5].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating23"
+                        value={rating23}
+                        onStarClick={onStarclick23}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[6].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating24"
+                        value={rating24}
+                        onStarClick={onStarclick24}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[7].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating25"
+                        value={rating25}
+                        onStarClick={onStarclick25}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[8].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating26"
+                        value={rating26}
+                        onStarClick={onStarclick26}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <span>{props.similarRecipes[9].title}</span>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                      <StarRatingComponent
+                        name="rating27"
+                        value={rating27}
+                        onStarClick={onStarclick27}
+                        starColor="rgba(78, 204, 163, 1)"
+                        emptyStarColor="rgba(100, 100, 100, 1)"
+                      />
+                    </View>
+                  </div>
+                }
               </View>
             </View>
 
@@ -442,6 +496,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 name="rating5"
                 value={rating5}
                 onStarClick={onStarclick5}
+                starColor="rgba(78, 204, 163, 1)"
+                emptyStarColor="rgba(100, 100, 100, 1)"
               />
             </View>
             <View style={{ flex: 1, flexDirection: "row" }}>
@@ -455,6 +511,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 name="rating6"
                 value={rating6}
                 onStarClick={onStarclick6}
+                starColor="rgba(78, 204, 163, 1)"
+                emptyStarColor="rgba(100, 100, 100, 1)"
               />
             </View>
             <View style={{ flex: 1, flexDirection: "row" }}>
@@ -468,6 +526,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 name="rating7"
                 value={rating7}
                 onStarClick={onStarclick7}
+                starColor="rgba(78, 204, 163, 1)"
+                emptyStarColor="rgba(100, 100, 100, 1)"
               />
             </View>
 

@@ -6,7 +6,6 @@ body {
   font-family: Saraburn, sans-serif;
   font-size: 125%;
   padding: 1em;
-  overflow: hidden;
 }
 title {
   color: rgba(78, 204, 163, 1);
@@ -18,7 +17,6 @@ title {
   padding: 1em;
 }
 .recipe_div {
-  /* height: 70vh; */
   overflow: auto;
   width:80%;
 }

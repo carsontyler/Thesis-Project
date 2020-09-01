@@ -24,13 +24,9 @@ interface RecipeCompProps {
 export const RecipeComp: React.FC<RecipeCompProps> = (props) => {
   const ingredients = props.recipe
     ? props.recipe.ingredients
-        .substr(2, props.recipe.ingredients.length - 4)
-        .split("', '")
     : null;
   const directions = props.recipe
     ? props.recipe.directions
-        .substr(2, props.recipe.directions.length - 4)
-        .split("', '")
     : null;
 
   const [activeTab, setActiveTab] = useState("1");
@@ -65,6 +61,8 @@ export const RecipeComp: React.FC<RecipeCompProps> = (props) => {
               name="rating"
               value={props.recipe.ratings}
               editing={false}
+              starColor="rgba(78, 204, 163, 1)"
+              emptyStarColor="rgba(100, 100, 100, 1)"
             />
           </View>
           <View
@@ -79,7 +77,7 @@ export const RecipeComp: React.FC<RecipeCompProps> = (props) => {
                   }}
                 >
                   <p>
-                    <span className="recipe-tab">Ingredients</span>
+                    <span className="recipe-tab">INGREDIENTS</span>
                   </p>
                 </NavLink>
               </NavItem>
@@ -91,7 +89,7 @@ export const RecipeComp: React.FC<RecipeCompProps> = (props) => {
                   }}
                 >
                   <p>
-                    <span className="recipe-tab">Directions</span>
+                    <span className="recipe-tab">DIRECTIONS</span>
                   </p>
                 </NavLink>
               </NavItem>

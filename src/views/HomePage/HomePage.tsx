@@ -3,9 +3,10 @@ import { View } from "react-native";
 import { DisclosureAndDirectionsComp } from "../../components/DisclosureAndDirectionsComp";
 import { MainPageComp } from "../../components/MainPageComp";
 import { SurveyPageComp } from "../../components/SurveyPageComp";
-import _ from "lodash";
+import _, { shuffle, xor } from "lodash";
 import "./homepage.css";
 import api from '../../api'
+import { ThankYouComp } from "../../components/ThankYouComp";
 
 export interface Recipe {
   id: number;
@@ -33,9 +34,11 @@ export const HomePage: React.FC = () => {
   let [currentRecipe, setCurrentRecipe] = useState<Recipe>();
   let [tempCurrentRecipe, setTempCurrentRecipe] = useState<Recipe>();
   let [groupId, setGroupId] = useState(0);
-  let [index, setIndex] = useState(-1); ///// TODO: CHANGE THIS TO -1
+  let [index, setIndex] = useState(-1); // TOOD: SET TO -1
   let [directionsAccepted, setDirectionsAccepted] = useState(false);
   let [data] = useState([{}])
+  let [displayNum, setDisplayNum] = useState(0);
+  let [displayRound, setDisplayRound] = useState(0);
 
   let [similar_recipes, setSimilarRecipes] = useState<Recipe[]>([]);
   let [certain_recipes, setCertainRecipes] = useState<Recipe[]>([]);
@@ -46,8 +49,11 @@ export const HomePage: React.FC = () => {
                      "You have been invited to a neighborhood block party and asked to bring a main dish for dinner. Of the options presented, choose the recipe that you are most likely to bring.",
                      "You are looking for a drink recipe to make for a treat one day. Of the options presented, choose the recipe that you are most likely to make.",
                      "You are hosting a get-together with your friends, one of whom is gluten-free. Of the options presented, choose the recipe that you are most likely to make.",
-                     "You are attending a New Year's Eve party and are asked to bring a side dish. Of the options presented, choose the recipe that you are most likely to bring."]
+                     "You are attending a New Year's Eve party and are asked to bring a side dish. Of the options presented, choose the recipe that you are most likely to bring."];
 
+  const displayRounds = [[0, 1, 2],
+                         [1, 2, 0],
+                         [2, 0, 1]];
   interface Recipe {
     id: number;
     type: string;
@@ -60,29 +66,27 @@ export const HomePage: React.FC = () => {
     ingredients: [string];
     directions: [string];
   }
+  
+  window.onbeforeunload = function() {
+    return "Data will be lost if you leave the page and you will have to restart, are you sure?";
+  };
 
-  const handleClick = (rcp: Recipe) => {
-    if (index === 1) setTempCurrentRecipe(rcp);
-    else if (index === 0) setCurrentRecipe(rcp);
-    if (rcp.most_similar.length > 0) {
-      setSimilarRecipes(
-        _.filter(allRecipes, (rcp: Recipe) => {
-          return currentRecipe
-            ? currentRecipe.most_similar.includes(rcp.id)
-            : false;
-        })
-      );
-      setCertainRecipes(
-        _.filter(similar_recipes, (rcp: Recipe) => {
-          return rcp.type === "certain";
-        })
-      );
-      setUncertainRecipes(
-        _.filter(similar_recipes, (rcp: Recipe) => {
-          return rcp.type === "uncertain";
-        })
-      );
+  const handleClick = (recipe: Recipe) => {
+    if (index === 1) setTempCurrentRecipe(recipe);
+    else if (index === 0)
+    {
+    setCurrentRecipe(recipe);
+    if (recipe.type === 'main') {// most_similar.length > 0) {
+      let similar = recipe.most_similar;
+      let similarR = allRecipes.filter(x => similar.includes(x.id));
+      setSimilarRecipes(similarR);
+      
+      let certain = similarR.filter(x => x.type === "certain");
+      let uncertain = similarR.filter(x => x.type === "uncertain");
+      setCertainRecipes(certain);
+      setUncertainRecipes(uncertain);
     }
+  }
   };
 
   const handleSubmit = (event: any) => {
@@ -111,14 +115,21 @@ export const HomePage: React.FC = () => {
 
   const refresh = () => {
     let recipes: Recipe[] = [];
+    if (groupId === 0 && index === 0) {
+      // setDisplayRound(displayRounds[Math.floor(Math.random() * 3)]); 
+      let num : number = Math.floor(Math.random()*3);     
+      setDisplayRound(num);
+    }
 
-    if (groupId === 0) recipes = breakfast_recipes;
-    else if (groupId === 1) recipes = dessert_recipes;
-    else if (groupId === 2) recipes = dinner_recipes;
-    else if (groupId === 3) recipes = drink_recipes;
-    else if (groupId === 4) recipes = gluten_free_recipes;
-    else if (groupId === 5) recipes = side_recipes;
+    if (groupId === 0) recipes = breakfast_recipes; 
+    else if (groupId === 1) recipes = shuffle(dessert_recipes);
+    else if (groupId === 2) recipes = shuffle(dinner_recipes);
+    else if (groupId === 3) recipes = shuffle(drink_recipes);
+    else if (groupId === 4) recipes = shuffle(gluten_free_recipes);
+    else if (groupId === 5) recipes = shuffle(side_recipes);
 
+    setDisplayNum(displayRounds[displayRound][Math.floor(groupId/2)])
+    // recipes = shuffle(recipes);
     setRecipes(recipes);
 
     let mainRecipes = _.filter(recipes, (recipe: Recipe) => {
@@ -129,71 +140,22 @@ export const HomePage: React.FC = () => {
     setCurrentRecipe(mainRecipes[0]);
 
     if (currentRecipe && currentRecipe.most_similar.length > 0) {
-      setSimilarRecipes(
-        _.filter(recipes, (rcp: Recipe) => {
-          // console.log(rcp.id);
-          // console.log(
-          //   currentRecipe ? currentRecipe.most_similar.includes(rcp.id) : false
-          // );
-          return currentRecipe
-            ? currentRecipe.most_similar.includes(rcp.id)
-            : false;
-        })
-      );
-      setCertainRecipes(
-        _.filter(similar_recipes, (rcp: Recipe) => {
-          return rcp.type === "certain";
-        })
-      );
-      setUncertainRecipes(
-        _.filter(similar_recipes, (rcp: Recipe) => {
-          return rcp.type === "uncertain";
-        })
-      );
+      let similar = currentRecipe.most_similar;
+      let similarR = recipes.filter(x => similar.includes(x.id));
+      setSimilarRecipes(similarR);
+      let certain = similarR.filter(x => x.type === "certain");
+      let uncertain = similarR.filter(x => x.type === "uncertain");
+      setCertainRecipes(certain);
+      setUncertainRecipes(uncertain);
     }
 
     if (index === 2) { 
-      // api.get('hello').then((data) => {
-      //   console.log(data);
-      // });
-
       try {
-        data.push( {
-          "OverallRating": 5,
-          "RelatedRating": 2,
-          "Accuracy1": 1,
-          "Accuracy2": 1,
-          "Accuracy3": 1,
-          "Accuracy4": 1,
-          "Accuracy5": 1,
-          "Accuracy6": 1,
-          "Accuracy7": 1,
-          "Accuracy8": 1,
-          "Accuracy9": 1,
-          "Accuracy10": 1,
-          "Unexpceted1": 1,
-          "Unexpceted2": 1,
-          "Unexpceted3": 1,
-          "Unexpceted4": 1,
-          "Unexpceted5": 1,
-          "Unexpceted6": 1,
-          "Unexpceted7": 1,
-          "Unexpceted8": 1,
-          "Unexpceted9": 1,
-          "Unexpceted10": 1,
-          "ReuseRating": 1,
-          "TrustRating": 1,
-          "SatisfactionRating": 1,
-          "GroupID": 1,
-          "RecipeID": 1
-        });
-
         api.post('postdata', data).catch((error) => {
           console.log("error");
           console.log(error);
         }).then((data) => {
           console.log("then");
-          //const json = JSON.parse(data.data);
           console.log(data); 
         });
       } catch (error) {
@@ -232,23 +194,22 @@ export const HomePage: React.FC = () => {
         currentRecipe={currentRecipe}
         handleClick={handleClick}
         similarRecipes={similar_recipes}
+        certainRecipes={certain_recipes}
+        uncertainRecipes={uncertain_recipes}
         submitSurvey={submitSurvey}
         tempCurrentRecipe={
           tempCurrentRecipe ? tempCurrentRecipe : currentRecipe
         }
         groupdId={groupId}
+        displayNum={displayRounds[displayRound][Math.floor(groupId/2)]}
       />
     ) : index > 1 ? (
-      <View>
-        <span>Thank you for participating!</span>
-      </View>
+      <ThankYouComp />
     ) : (
       <div>Current Recipe isn't set. Please contact Carson (385) 244-6611</div>
     )
   ) : index > 1 ? (
-    <View>
-      <span>Thank you for participating!</span>
-    </View>
+    <ThankYouComp />
   ) : (
     <div>Index doesn't equal -1. Please contact Carson (385) 244-6611</div>
   );

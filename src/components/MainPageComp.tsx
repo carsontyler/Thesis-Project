@@ -77,7 +77,7 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                   color="#4ECCA3"
                 />
               </View>
-              <View style={{ flex: 4, flexDirection: "column" }} />
+              <View style={{ flex: 3, flexDirection: "column" }} />
             </View>
             <View style={{ flex: 1, flexDirection: "row" }} >
               <Card className="card-chart">
@@ -91,9 +91,22 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                 </CardBody>
               </Card>
             </View>
+            <View style={{ flex: 1, flexDirection: "row" }} >
+              <Card className="card-chart">
+                <CardHeader>
+                  <CardTitle tag="h2">
+                    <i className="tim-icons icon-bell-55 text-info" /> Directions
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <p>Click on each recipe to view its details. Then, click the Ingredients or Directions tabs and scroll through them. Click "Choose Recipe" once you've selected a recipe.</p>
+                  <p>Call or text Carson at (385) 244-6611 with any questions or issues.</p>
+                </CardBody>
+              </Card>
+            </View>
           </div>
         </View>
-        <View style={{ flex: 1, flexDirection: "column", alignItems: 'center' }}>
+        <View style={{ flex: 1, flexDirection: "column", maxHeight: '90vh', alignItems: 'center'}}>
           <div className="recipe_div">
             <RecipeComp recipe={props.currentRecipe} />
           </div>
