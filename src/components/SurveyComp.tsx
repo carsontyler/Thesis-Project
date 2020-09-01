@@ -15,33 +15,33 @@ export interface SurvepCompProps {
 }
 
 export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
-  let [rating1, setRating1] = useState(3);
-  let [rating2, setRating2] = useState(3);
-  // let [rating3, setRating3] = useState(3);
-  // let [rating4, setRating4] = useState(3);
-  let [rating5, setRating5] = useState(3);
-  let [rating6, setRating6] = useState(3);
-  let [rating7, setRating7] = useState(3);
-  let [rating8, setRating8] = useState(3);
-  let [rating9, setRating9] = useState(3);
-  let [rating10, setRating10] = useState(3);
-  let [rating11, setRating11] = useState(3);
-  let [rating12, setRating12] = useState(3);
-  let [rating13, setRating13] = useState(3);
-  let [rating14, setRating14] = useState(3);
-  let [rating15, setRating15] = useState(3);
-  let [rating16, setRating16] = useState(3);
-  let [rating17, setRating17] = useState(3);
-  let [rating18, setRating18] = useState(3);
-  let [rating19, setRating19] = useState(3);
-  let [rating20, setRating20] = useState(3);
-  let [rating21, setRating21] = useState(3);
-  let [rating22, setRating22] = useState(3);
-  let [rating23, setRating23] = useState(3);
-  let [rating24, setRating24] = useState(3);
-  let [rating25, setRating25] = useState(3);
-  let [rating26, setRating26] = useState(3);
-  let [rating27, setRating27] = useState(3);
+  let [rating1, setRating1] = useState(0);
+  let [rating2, setRating2] = useState(0);
+  // let [rating3, setRating3] = useState(0);
+  // let [rating4, setRating4] = useState(0);
+  let [rating5, setRating5] = useState(0);
+  let [rating6, setRating6] = useState(0);
+  let [rating7, setRating7] = useState(0);
+  let [rating8, setRating8] = useState(0);
+  let [rating9, setRating9] = useState(0);
+  let [rating10, setRating10] = useState(0);
+  let [rating11, setRating11] = useState(0);
+  let [rating12, setRating12] = useState(0);
+  let [rating13, setRating13] = useState(0);
+  let [rating14, setRating14] = useState(0);
+  let [rating15, setRating15] = useState(0);
+  let [rating16, setRating16] = useState(0);
+  let [rating17, setRating17] = useState(0);
+  let [rating18, setRating18] = useState(0);
+  let [rating19, setRating19] = useState(0);
+  let [rating20, setRating20] = useState(0);
+  let [rating21, setRating21] = useState(0);
+  let [rating22, setRating22] = useState(0);
+  let [rating23, setRating23] = useState(0);
+  let [rating24, setRating24] = useState(0);
+  let [rating25, setRating25] = useState(0);
+  let [rating26, setRating26] = useState(0);
+  let [rating27, setRating27] = useState(0);
   let [json, setJson] = useState({});
 
   const onStarclick1 = (event: any) => {
@@ -173,7 +173,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
   }, [rating1, rating2, rating5, rating6, rating7, rating8, rating9, rating10, rating11, rating12, rating13, rating14, rating15, rating16, rating17, rating18, rating19, rating20, rating21, rating22, rating23, rating24, rating25, rating26, rating27]);
 
   return (
-    <div style={{ overflow: "auto" }}>
+    <div>
       <Card className="card-chart">
         <CardHeader>
           <CardTitle tag="h3">

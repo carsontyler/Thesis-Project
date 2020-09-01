@@ -33,39 +33,93 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
               <CardBody>
                 {props.mainRecipes ? (
                   <div>
+                  {(props.currentRecipe === props.mainRecipes[0]) &&
+                    <div
+                      id="recipe1"
+                      onClick={() => props.handleClick(props.mainRecipes[0])}
+                    >
+                      1. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[0].title}</span>
+                    </div>
+                  }
+                  {(props.currentRecipe != props.mainRecipes[0]) &&
                     <div
                       id="recipe1"
                       onClick={() => props.handleClick(props.mainRecipes[0])}
                     >
                       1. <span className="recipe-item">{props.mainRecipes[0].title}</span>
                     </div>
+                  }
+
+                  {(props.currentRecipe === props.mainRecipes[1]) &&
+                    <div
+                      id="recipe2"
+                      onClick={() => props.handleClick(props.mainRecipes[1])}
+                    >
+                      2. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[1].title}</span>
+                    </div>
+                  }
+                  {(props.currentRecipe != props.mainRecipes[1]) &&
                     <div
                       id="recipe2"
                       onClick={() => props.handleClick(props.mainRecipes[1])}
                     >
                       2. <span className="recipe-item">{props.mainRecipes[1].title}</span>
                     </div>
+                  }
+
+                  {(props.currentRecipe === props.mainRecipes[2]) &&
+                    <div
+                      id="recipe3"
+                      onClick={() => props.handleClick(props.mainRecipes[2])}
+                    >
+                      3. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[2].title}</span>
+                    </div>
+                  }
+                  {(props.currentRecipe != props.mainRecipes[2]) &&
                     <div
                       id="recipe3"
                       onClick={() => props.handleClick(props.mainRecipes[2])}
                     >
                       3. <span className="recipe-item">{props.mainRecipes[2].title}</span>
                     </div>
+                  }
+
+                  {(props.currentRecipe === props.mainRecipes[3]) &&
+                    <div
+                      id="recipe4"
+                      onClick={() => props.handleClick(props.mainRecipes[3])}
+                    >
+                      4. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[3].title}</span>
+                    </div>
+                  }
+                  {(props.currentRecipe != props.mainRecipes[3]) &&
                     <div
                       id="recipe4"
                       onClick={() => props.handleClick(props.mainRecipes[3])}
                     >
                       4. <span className="recipe-item">{props.mainRecipes[3].title}</span>
                     </div>
+                  }
+                  
+                  {(props.currentRecipe === props.mainRecipes[4]) &&
+                    <div
+                      id="recipe5"
+                      onClick={() => props.handleClick(props.mainRecipes[4])}
+                    >
+                      5. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[4].title}</span>
+                    </div>
+                  }
+                  {(props.currentRecipe != props.mainRecipes[4]) &&
                     <div
                       id="recipe5"
                       onClick={() => props.handleClick(props.mainRecipes[4])}
                     >
                       5. <span className="recipe-item">{props.mainRecipes[4].title}</span>
                     </div>
+                  }
                   </div>
                 ) : (
-                    <div>No Recipes Found</div>
+                    <div>No recipes found, please call or text Carson at (385) 244-6611</div>
                   )}
               </CardBody>
             </Card>
@@ -106,7 +160,7 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
             </View>
           </div>
         </View>
-        <View style={{ flex: 1, flexDirection: "column", maxHeight: '90vh', alignItems: 'center'}}>
+        <View style={{ flex: 1, flexDirection: "column", maxHeight: '90vh', alignItems: 'center' }}>
           <div className="recipe_div">
             <RecipeComp recipe={props.currentRecipe} />
           </div>

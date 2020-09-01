@@ -7,6 +7,7 @@ import _, { shuffle, xor } from "lodash";
 import "./homepage.css";
 import api from '../../api'
 import { ThankYouComp } from "../../components/ThankYouComp";
+import { InformedConsentComp } from "../../components/InformedConsentComp";
 
 export interface Recipe {
   id: number;
@@ -34,7 +35,7 @@ export const HomePage: React.FC = () => {
   let [currentRecipe, setCurrentRecipe] = useState<Recipe>();
   let [tempCurrentRecipe, setTempCurrentRecipe] = useState<Recipe>();
   let [groupId, setGroupId] = useState(0);
-  let [index, setIndex] = useState(-1); // TOOD: SET TO -1
+  let [index, setIndex] = useState(-2); // TOOD: SET TO -1
   let [directionsAccepted, setDirectionsAccepted] = useState(false);
   let [data] = useState([{}])
   let [displayNum, setDisplayNum] = useState(0);
@@ -68,7 +69,8 @@ export const HomePage: React.FC = () => {
   }
   
   window.onbeforeunload = function() {
-    return "Data will be lost if you leave the page and you will have to restart, are you sure?";
+    if (index != 2)
+      return "Data will be lost if you leave the page and you will have to restart, are you sure?";
   };
 
   const handleClick = (recipe: Recipe) => {
@@ -90,7 +92,12 @@ export const HomePage: React.FC = () => {
   };
 
   const handleSubmit = (event: any) => {
-    setIndex(0);
+    if (index === -2){
+      setIndex(-1);
+      setDirectionsAccepted(false);
+    }
+    else 
+      setIndex(0);
   };
 
   const selectRecipeClick = () => {
@@ -172,7 +179,15 @@ export const HomePage: React.FC = () => {
     refresh();
   }, [directionsAccepted, index]);
 
-  return index === -1 ? (
+  return index === -2 ? (
+    <InformedConsentComp
+      directionsAccepted={directionsAccepted}
+      directionsCheckboxChange={directionsCheckboxChange}
+      handleSubmit={handleSubmit}
+      refresh={refresh}
+    />
+  ) :
+  index === -1 ? (
     <DisclosureAndDirectionsComp
       directionsAccepted={directionsAccepted}
       directionsCheckboxChange={directionsCheckboxChange}

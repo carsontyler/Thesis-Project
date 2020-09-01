@@ -37,7 +37,7 @@ export const RecipeComp: React.FC<RecipeCompProps> = (props) => {
 
   return props.recipe ? (
     <div style={{ background: "rgba(57,62,70,1)", overflow: 'hidden' }}>
-      <Card className="card-chart text-center" style={{ padding: "1px", justifyContent: 'center' }}>
+      <Card className="card-chart text-center" style={{ padding: "1px", justifyContent: 'center', paddingBottom: "20px" }}>
         <CardHeader>
           <CardTitle tag="h2" style={{textAlign: 'center'}}>
             <i className="tim-icons icon-bell-55 text-info" />{" "}
@@ -55,7 +55,7 @@ export const RecipeComp: React.FC<RecipeCompProps> = (props) => {
         </div>
         <CardBody>
           <View
-            style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}
+            style={{ flex: 1, flexDirection: "row", justifyContent: "center"}}
           >
             <StarRatingComponent
               name="rating"
