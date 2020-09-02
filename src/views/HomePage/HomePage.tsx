@@ -69,7 +69,7 @@ export const HomePage: React.FC = () => {
   }
   
   window.onbeforeunload = function() {
-    if (index != 2)
+    if (index !== 2)
       return "Data will be lost if you leave the page and you will have to restart, are you sure?";
   };
 

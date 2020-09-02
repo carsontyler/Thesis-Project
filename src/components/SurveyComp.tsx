@@ -182,7 +182,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
         </CardHeader>
         <CardBody>
           <View style={{ flex: 1, flexDirection: "column" }}>
-            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
               <span>
                 On a scale of 1-5, what was your overall rating of the
                 recommendation system?
@@ -197,7 +197,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 emptyStarColor="rgba(100, 100, 100, 1)"
               />
             </View>
-            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
               <span>
                 On a scale of 1-5, how accurate were the recommendations related
                 to your selection?
@@ -212,7 +212,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 emptyStarColor="rgba(100, 100, 100, 1)"
               />
             </View>
-            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
               <span>
                 On a scale of 1-5, please rate each recommendation's accuracy to
                 your intended selection:
@@ -349,7 +349,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
               </View>
             </View>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "row", marginTop: '1em' }}>
               <span>
                 On a scale of 1-5, how unexpected was each recommendation?
               </span>
@@ -485,7 +485,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
               </View>
             </View>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
               <span>
                 On a scale of 1-5, how likely are you to reuse this
                 recommendation system for future recipe recommendations?
@@ -500,7 +500,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 emptyStarColor="rgba(100, 100, 100, 1)"
               />
             </View>
-            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
               <span>
                 On a scale of 1-5, how much do you trust this recommendation
                 system to provide you with use, accurate results?
@@ -515,7 +515,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 emptyStarColor="rgba(100, 100, 100, 1)"
               />
             </View>
-            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
               <span>
                 On a scale of 1-5, what is your overall satisfaction with this
                 recommendation system?
@@ -531,13 +531,74 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
               />
             </View>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <Button
-                // onPress={() => props.submitSurvey(json)}
-                onPress={() => validate()}
-                title="Submit Survey"
-                color="#4ECCA3"
-              />
+            <View style={{ flex: 1, flexDirection: "row", marginTop: "1em", marginBottom: '2em' }}>
+              {(rating1 === 0 ||
+                rating2 === 0 ||
+                rating5 === 0 ||
+                rating6 === 0 ||
+                rating7 === 0 ||
+                rating8 === 0 ||
+                rating9 === 0 ||
+                rating10 === 0 ||
+                rating11 === 0 ||
+                rating12 === 0 ||
+                (props.similarRecipes.length > 6 && rating13 === 0) ||
+                (props.similarRecipes.length > 6 && rating14 === 0) ||
+                (props.similarRecipes.length > 6 && rating15 === 0) ||
+                (props.similarRecipes.length > 6 && rating16 === 0) ||
+                (props.similarRecipes.length > 6 && rating17 === 0) ||
+                rating18 === 0 ||
+                rating19 === 0 ||
+                rating20 === 0 ||
+                rating21 === 0 ||
+                rating22 === 0 ||
+                (props.similarRecipes.length > 6 && rating23 === 0) ||
+                (props.similarRecipes.length > 6 && rating24 === 0) ||
+                (props.similarRecipes.length > 6 && rating25 === 0) ||
+                (props.similarRecipes.length > 6 && rating26 === 0) ||
+                (props.similarRecipes.length > 6 && rating27 === 0)) &&
+                <div>
+                  <Button
+                    // onPress={() => props.submitSurvey(json)}
+                    onPress={() => validate()}
+                    title="Submit Survey"
+                    color="#4ECCA3"
+                    disabled={true} />
+                  <span style={{ color: 'red' }}>Please answer all the questions</span>
+                </div>
+              }
+              {(rating1 !== 0 &&
+                rating2 !== 0 &&
+                rating5 !== 0 &&
+                rating6 !== 0 &&
+                rating7 !== 0 &&
+                rating8 !== 0 &&
+                rating9 !== 0 &&
+                rating10 !== 0 &&
+                rating11 !== 0 &&
+                rating12 !== 0 &&
+                (props.similarRecipes.length < 6 || rating13 !== 0) &&
+                (props.similarRecipes.length < 6 || rating14 !== 0) &&
+                (props.similarRecipes.length < 6 || rating15 !== 0) &&
+                (props.similarRecipes.length < 6 || rating16 !== 0) &&
+                (props.similarRecipes.length < 6 || rating17 !== 0) &&
+                rating18 !== 0 &&
+                rating19 !== 0 &&
+                rating20 !== 0 &&
+                rating21 !== 0 &&
+                rating22 !== 0 &&
+                (props.similarRecipes.length < 6 || rating23 !== 0) &&
+                (props.similarRecipes.length < 6 || rating24 !== 0) &&
+                (props.similarRecipes.length < 6 || rating25 !== 0) &&
+                (props.similarRecipes.length < 6 || rating26 !== 0) &&
+                (props.similarRecipes.length < 6 || rating27 !== 0)) &&
+                <Button
+                  // onPress={() => props.submitSurvey(json)}
+                  onPress={() => validate()}
+                  title="Submit Survey"
+                  color="#4ECCA3"
+                />
+              }
             </View>
           </View>
         </CardBody>

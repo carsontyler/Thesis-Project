@@ -41,7 +41,7 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                       1. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[0].title}</span>
                     </div>
                   }
-                  {(props.currentRecipe != props.mainRecipes[0]) &&
+                  {(props.currentRecipe !== props.mainRecipes[0]) &&
                     <div
                       id="recipe1"
                       onClick={() => props.handleClick(props.mainRecipes[0])}
@@ -58,7 +58,7 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                       2. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[1].title}</span>
                     </div>
                   }
-                  {(props.currentRecipe != props.mainRecipes[1]) &&
+                  {(props.currentRecipe !== props.mainRecipes[1]) &&
                     <div
                       id="recipe2"
                       onClick={() => props.handleClick(props.mainRecipes[1])}
@@ -75,7 +75,7 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                       3. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[2].title}</span>
                     </div>
                   }
-                  {(props.currentRecipe != props.mainRecipes[2]) &&
+                  {(props.currentRecipe !== props.mainRecipes[2]) &&
                     <div
                       id="recipe3"
                       onClick={() => props.handleClick(props.mainRecipes[2])}
@@ -92,7 +92,7 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                       4. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[3].title}</span>
                     </div>
                   }
-                  {(props.currentRecipe != props.mainRecipes[3]) &&
+                  {(props.currentRecipe !== props.mainRecipes[3]) &&
                     <div
                       id="recipe4"
                       onClick={() => props.handleClick(props.mainRecipes[3])}
@@ -109,7 +109,7 @@ export const MainPageComp: React.FC<MainPageProps> = (props) => {
                       5. <span className="recipe-item" style={{ color: 'rgba(78, 204, 163, 1)' }}>{props.mainRecipes[4].title}</span>
                     </div>
                   }
-                  {(props.currentRecipe != props.mainRecipes[4]) &&
+                  {(props.currentRecipe !== props.mainRecipes[4]) &&
                     <div
                       id="recipe5"
                       onClick={() => props.handleClick(props.mainRecipes[4])}

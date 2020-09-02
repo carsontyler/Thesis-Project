@@ -1,26 +1,16 @@
-import React, { useEffect } from "react";
-import { View, Button } from "react-native";
+import React from "react";
+import { View } from "react-native";
 import { Card, CardHeader, CardTitle, CardBody } from "reactstrap";
 
-interface DisclosureAndDirectionsProps {
-  directionsCheckboxChange: any;
-  handleSubmit: any;
-  directionsAccepted: boolean;
-  refresh: any;
-}
-
-export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps> = (
+export const DirectionsComp: React.FC = (
   props
 ) => {
-  useEffect(() => {
-    props.refresh();
-  }, [props.directionsAccepted]);
 
   return (
     <View>
-      <View style={{ flex: 1, flexDirection: "row" }}>
+      <View style={{ flex: 1, flexDirection: "row", backgroundColor: 'rgba(45, 51, 60, 1)' }}>
         <View style={{ flex: 1, flexDirection: "column" }}>
-          <Card className="card-chart" style={{ background: 'rgba(45, 51, 60, 1)' }}>
+          <Card className="card-chart">
             <CardHeader>
               <CardTitle tag="h2" style={{ textAlign: 'center' }}>
                 <i className="tim-icons icon-bell-55 text-info" /> Directions
@@ -64,30 +54,6 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
                 For the best experience, use a browser on your desktop instead of on a mobile device.
                 <br />
                 </p>
-                <form>
-                  <label>
-                    <input
-                      name="directionsCheckbox"
-                      type="checkbox"
-                      onChange={props.directionsCheckboxChange}
-                    />
-                  I understand these directions.
-                  <br />
-                  </label>
-                  <View
-                    style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}
-                  >
-                    <View style={{ flex: 1, flexDirection: "column" }}>
-                      <Button
-                        onPress={props.handleSubmit}
-                        title="Submit"
-                        color="#4ECCA3"
-                        disabled={!props.directionsAccepted}
-                      />
-                    </View>
-                    <View style={{ flex: 5, flexDirection: "column" }} />
-                  </View>
-                </form>
               </View>
             </CardBody>
           </Card>
