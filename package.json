@@ -39,6 +39,7 @@
       "react-router-native": "^5.2.0",
       "react-scripts": "^3.4.3",
       "react-star-rating-component": "^1.4.1",
+      "react-tooltip": "^4.2.9",
       "reactstrap": "^8.5.1",
       "reflect-metadata": "^0.1.10",
       "typeorm": "0.2.25"

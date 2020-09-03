@@ -521,7 +521,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 recommendation system?
               </span>
             </View>
-            <View style={{ flex: 1, flexDirection: "row" }}>
+            <View style={{ flex: 1, flexDirection: "row" }}> 
               <StarRatingComponent
                 name="rating7"
                 value={rating7}

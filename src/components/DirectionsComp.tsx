@@ -34,13 +34,13 @@ export const DirectionsComp: React.FC = (
                 </p>
                 <p>
                   Upon selecting a recipe, you will be presented with either five (5) or ten (10)
-                  recommended recipes. You can cycle through the recipes by
-                  clicking on them.
+                  recommended recipes. Consider these recommendations and how they related to the selected recipe.
+                  You can cycle through the recipes by clicking on them.
                 </p>
                 <p>
-                  There are two (2) types of recipes: certain and <span style={{ color: '#ffdd00', whiteSpace: 'nowrap' }}>uncertain</span>.
-                <span style={{ color: '#ffdd00', whiteSpace: 'nowrap' }}> Uncertain</span> recipes will either have a yellow font color or
-                will be indistinguishable from certain recipes.
+                  There are two (2) types of recipes: certain and <span style={{ color: '#ffdd00', whiteSpace: 'nowrap' }}>uncertain</span> recipes.
+                <span style={{ color: '#ffdd00', whiteSpace: 'nowrap' }}> Uncertain</span> recipes will have a yellow font color. 
+                Some scenarios will not have uncertain recipes. 
                 </p>
                 <p>
                   You will then fill out a survey related to the recommended
