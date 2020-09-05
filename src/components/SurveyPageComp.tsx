@@ -48,7 +48,7 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
       <View>
         <Button onPress={openModal}
           color="#4ECCA3"
-          title="Show Directions" />
+          title="Show Full Directions" />
         <Modal style={{ marginTop: '2em' }}>
           <DirectionsComp />
           <p>
@@ -59,9 +59,13 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
         </Modal>
         <div>
           <View style={{ flexDirection: "row" }}>
-          </View>
-          <View style={{ flexDirection: "row" }}>
-            <View style={{ flex: 1, flexDirection: "column" }}>
+            <View style={{ flex: 1, flexDirection: "column", padding: '15px' }}>
+              <View style={{ flexDirection: "row", alignSelf: 'center'  }} >
+                <h2 style={{ color: 'rgba(78, 204, 163, 1)' }}>Directions</h2>
+              </View>
+              <View style={{ flexDirection: "row" }} >
+                <p>Click through the recommended recipes and observe how they are related to the recipe you selected. <b>Don't worry about how they relate to the scenario</b>, it only matters how they related to the selected recipe. Then, fill out the survey.</p>
+              </View>
               <View style={{ flexDirection: "row", alignSelf: 'center' }} >
                 <h2 style={{ color: 'rgba(78, 204, 163, 1)' }}>Recommended Recipes</h2>
               </View>
@@ -185,7 +189,7 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
               </View>
               <View style={{ flexDirection: "row", margin: '10px' }}>
                 <div
-                  id="currentRecipe"
+                  id="currentRecipeDiv"
                   onClick={() => props.handleClick(props.currentRecipe)}
                 >
                   {props.tempCurrentRecipe === props.currentRecipe && (
@@ -196,13 +200,13 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
                   )}
                 </div>
               </View>
-              <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
+              <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                 <div className="recipe_div">
                   <RecipeComp recipe={props.tempCurrentRecipe} />
                 </div>
               </View>
             </View>
-            <View style={{ flex: 1, flexDirection: "column" }}>
+            <View style={{ flex: 1, flexDirection: "column", padding: '15px' }}>
               <div>
                 <SurveyComp
                   submitSurvey={props.submitSurvey}
@@ -220,7 +224,7 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
         (<View>
           <Button onPress={openModal}
             color="#4ECCA3"
-            title="Show Directions" />
+            title="Show Full Directions" />
           <Modal style={{ marginTop: '2em' }}>
             <DirectionsComp />
             <p>
@@ -230,10 +234,14 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
             </p>
           </Modal>
           <div>
-            <View style={{ flexDirection: "row" }}>
-            </View>
             <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={{ flex: 1, flexDirection: "column" }}>
+              <View style={{ flex: 1, flexDirection: "column", padding: '15px' }}>
+                <View style={{ flexDirection: "row", alignSelf: 'center'  }} >
+                  <h2 style={{ color: 'rgba(78, 204, 163, 1)' }}>Directions</h2>
+                </View>
+                <View style={{ flexDirection: "row" }} >
+                  <p>Click through the recommended recipes and observe how they are related to the recipe you selected. <b>Don't worry about how they relate to the scenario</b>, it only matters how they related to the selected recipe. Then, fill out the survey.</p>
+                </View>
                 <View style={{ flexDirection: "row", alignSelf: 'center' }} >
                   <h2 style={{ color: 'rgba(78, 204, 163, 1)' }}>Recommended Recipes</h2>
                 </View>
@@ -359,7 +367,7 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
                 </View>
                 <View style={{ flexDirection: "row", margin: '10px' }}>
                   <div
-                    id="currentRecipe"
+                    id="currentRecipeDiv"
                     onClick={() => props.handleClick(props.currentRecipe)}
                   >
                     {props.tempCurrentRecipe === props.currentRecipe && (
@@ -370,13 +378,13 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
                     )}
                   </div>
                 </View>
-                <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
+                <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                   <div className="recipe_div">
                     <RecipeComp recipe={props.tempCurrentRecipe} />
                   </div>
                 </View>
               </View>
-              <View style={{ flex: 1, flexDirection: "column" }}>
+              <View style={{ flex: 1, flexDirection: "column", padding: '15px' }}>
                 <div>
                   <SurveyComp
                     submitSurvey={props.submitSurvey}
@@ -394,7 +402,7 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
           (<View>
             <Button onPress={openModal}
               color="#4ECCA3"
-              title="Show Directions" />
+              title="Show Full Directions" />
             <Modal style={{ marginTop: '2em' }}>
               <DirectionsComp />
               <p>
@@ -405,7 +413,13 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
             </Modal>
             <div>
               <View style={{ flex: 1, flexDirection: "row" }}>
-                <View style={{ flex: 1, flexDirection: "column" }}>
+                <View style={{ flex: 1, flexDirection: "column", padding: '15px' }}>
+                  <View style={{ flexDirection: "row", alignSelf: 'center' }} >
+                    <h2 style={{ color: 'rgba(78, 204, 163, 1)' }}>Directions</h2>
+                  </View>
+                  <View style={{ flexDirection: "row" }} >
+                    <p>Click through the recommended recipes and observe how they are related to the recipe you selected. <span style={{fontWeight: 'bold'}}>Don't worry about how they relate to the scenario</span>, it only matters how they related to the selected recipe. Then, fill out the survey.</p>
+                  </View>
                   <View style={{ flexDirection: "row", alignSelf: 'center' }} >
                     <h2 style={{ color: 'rgba(78, 204, 163, 1)' }}>Recommended Recipes</h2>
                   </View>
@@ -472,7 +486,7 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
                   </View>
                   <View style={{ flexDirection: "row", margin: '10px' }}>
                     <div
-                      id="currentRecipe"
+                      id="currentRecipeDiv"
                       onClick={() => props.handleClick(props.currentRecipe)}
                     >
                       {props.tempCurrentRecipe === props.currentRecipe && (
@@ -483,13 +497,13 @@ export const SurveyPageComp: React.FC<SurveyPageProps> = (props) => {
                       )}
                     </div>
                   </View>
-                  <View style={{ flexDirection: "row", justifyContent: 'space-between' }}>
+                  <View style={{ flexDirection: "row", justifyContent: 'center' }}>
                     <div className="recipe_div">
                       <RecipeComp recipe={props.tempCurrentRecipe} />
                     </div>
                   </View>
                 </View>
-                <View style={{ flex: 1, flexDirection: "column" }}>
+                <View style={{ flex: 1, flexDirection: "column", padding: '15px' }}>
                   <div>
                     <SurveyComp
                       submitSurvey={props.submitSurvey}

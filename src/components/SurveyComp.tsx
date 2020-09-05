@@ -161,7 +161,8 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
         SatisfactionRating: rating7,
         GroupID: props.groupId,
         RecipeID: props.recipe.id,
-        DisplayNum: props.displayNum
+        DisplayNum: props.displayNum,
+        SimilarRecipes: JSON.stringify(props.similarRecipes)
       }
     );
   }
@@ -176,7 +177,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
     <div>
       <Card className="card-chart">
         <CardHeader>
-          <CardTitle tag="h3">
+          <CardTitle tag="h2" style={{textAlign: 'center'}}>
             <i className="tim-icons icon-bell-55 text-info" /> Survey
           </CardTitle>
         </CardHeader>
@@ -184,7 +185,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
           <View style={{ flex: 1, flexDirection: "column" }}>
             <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
               <span>
-                On a scale of 1-5, what was your overall rating of the
+                On a scale of 1-5, what is your overall rating of the
                 recommendation system?
               </span>
             </View>
@@ -199,7 +200,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
             </View>
             <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
               <span>
-                On a scale of 1-5, how accurate were the recommendations related
+                On a scale of 1-5, how accurate are the recommendations related
                 to your selection?
               </span>
             </View>
@@ -351,7 +352,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
 
             <View style={{ flex: 1, flexDirection: "row", marginTop: '1em' }}>
               <span>
-                On a scale of 1-5, how unexpected was each recommendation?
+                On a scale of 1-5, how unexpected is each recommendation? (Where 1 = least unexpected and 5 = most unexpected)
               </span>
             </View>
 
@@ -503,7 +504,7 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
             <View style={{ flex: 1, flexDirection: "row", marginTop: "1em" }}>
               <span>
                 On a scale of 1-5, how much do you trust this recommendation
-                system to provide you with use, accurate results?
+                system to provide you with useful, accurate results?
               </span>
             </View>
             <View style={{ flex: 1, flexDirection: "row" }}>

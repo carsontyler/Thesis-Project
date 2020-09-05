@@ -49,7 +49,7 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
                 </p>
                 <p>
                   There are two (2) types of recipes: certain and <span style={{ color: '#ffdd00', whiteSpace: 'nowrap' }}>uncertain</span> recipes.
-                <span style={{ color: '#ffdd00', whiteSpace: 'nowrap' }}> Uncertain</span> recipes will have a yellow font color. 
+                <span style={{ color: '#ffdd00', whiteSpace: 'nowrap' }}> Uncertain</span> recipes will have a yellow font color and will show up once you've initially selected a recipe. 
                 Some scenarios will not have uncertain recipes. 
                 </p>
                 <p>

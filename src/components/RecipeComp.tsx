@@ -65,14 +65,14 @@ export const RecipeComp: React.FC<RecipeCompProps> = (props) => {
               <div data-tip data-for="tooltip">
               <StarRatingComponent
                 name="rating"
-                value={props.recipe.ratings !== 0 ? props.recipe.stars : 0}
+                value={props.recipe && props.recipe.stars && props.recipe.ratings && props.recipe.ratings !== 0 ? props.recipe.stars : 0}
                 editing={false}
                 starColor="rgba(78, 204, 163, 1)"
                 emptyStarColor="rgba(100, 100, 100, 1)"
               />
               </div>
               <ReactToolTip id="tooltip" place="top" effect="solid">
-                <span>{props.recipe.stars.toFixed(2)} stars</span>
+                <span>{props.recipe && props.recipe.stars && props.recipe.ratings && props.recipe.ratings !== 0 ? props.recipe.stars.toFixed(2) : 0} stars</span>
               </ReactToolTip>
             </View>
             <View

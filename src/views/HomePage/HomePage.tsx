@@ -77,18 +77,19 @@ export const HomePage: React.FC = () => {
     if (index === 1) setTempCurrentRecipe(recipe);
     else if (index === 0)
     {
-    setCurrentRecipe(recipe);
-    if (recipe.type === 'main') {// most_similar.length > 0) {
-      let similar = recipe.most_similar;
-      let similarR = allRecipes.filter(x => similar.includes(x.id));
-      setSimilarRecipes(similarR);
-      
-      let certain = similarR.filter(x => x.type === "certain");
-      let uncertain = similarR.filter(x => x.type === "uncertain");
-      setCertainRecipes(certain);
-      setUncertainRecipes(uncertain);
-    }
-  }
+      let r = recipe;
+      setCurrentRecipe(r);
+      if (recipe.type === 'main') {
+        let similar = recipe.most_similar;
+        let similarR = allRecipes.filter(x => similar.includes(x.id));
+        setSimilarRecipes(similarR);
+        
+        let certain = similarR.filter(x => x.type === "certain");
+        let uncertain = similarR.filter(x => x.type === "uncertain");
+        setCertainRecipes(certain);
+        setUncertainRecipes(uncertain);
+      }
+   }
   };
 
   const handleSubmit = (event: any) => {
@@ -144,7 +145,8 @@ export const HomePage: React.FC = () => {
     });
 
     setMainRecipes(mainRecipes);
-    setCurrentRecipe(mainRecipes[0]);
+    if (index === 0)
+      setCurrentRecipe(mainRecipes[0]);
 
     if (currentRecipe && currentRecipe.most_similar.length > 0) {
       let similar = currentRecipe.most_similar;
