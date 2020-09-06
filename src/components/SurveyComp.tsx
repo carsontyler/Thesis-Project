@@ -4,7 +4,6 @@ import { CardHeader, Card, CardTitle, CardBody } from "reactstrap";
 import { View, Button } from "react-native";
 import "./../views/HomePage/homepage.css";
 import { Recipe } from "../views/HomePage/HomePage";
-import _ from "lodash";
 
 export interface SurvepCompProps {
   submitSurvey: any;

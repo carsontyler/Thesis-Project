@@ -1,6 +1,5 @@
-import React, { FC, useState, useRef, useCallback } from "react";
+import React, { FC, useState, useCallback } from "react";
 import { Modal, ModalProps } from "reactstrap";
-import { ModalHOC } from "./ModalHOC";
 
 export function useModal() {
   const [isOpen, setIsOpen] = useState(false);
