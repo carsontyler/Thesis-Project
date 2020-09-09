@@ -594,7 +594,6 @@ export const SurveyComp: React.FC<SurvepCompProps> = (props) => {
                 (props.similarRecipes.length < 6 || rating26 !== 0) &&
                 (props.similarRecipes.length < 6 || rating27 !== 0)) &&
                 <Button
-                  // onPress={() => props.submitSurvey(json)}
                   onPress={() => validate()}
                   title="Submit Survey"
                   color="#4ECCA3"

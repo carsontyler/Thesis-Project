@@ -28,6 +28,8 @@ const dinner_recipes = require("./../../data/dinner_recipes.json");
 const drink_recipes = require("./../../data/drink_recipes.json");
 const gluten_free_recipes = require("./../../data/gluten_free_recipes.json");
 const side_recipes = require("./../../data/side_recipes.json");
+const potluck_recipes = require("./../../data/potluck_recipes.json");
+const picnic_recipes = require("./../../data/picnic_recipes.json");
 
 export const HomePage: React.FC = () => {
   const [allRecipes, setRecipes] = useState<Recipe[]>([]);
@@ -50,11 +52,14 @@ export const HomePage: React.FC = () => {
                      "You have been invited to a neighborhood block party and asked to bring a main dish for dinner. Of the options presented, choose the recipe that you are most likely to bring.",
                      "You are looking for a drink recipe to make for a treat one day. Of the options presented, choose the recipe that you are most likely to make.",
                      "You are hosting a get-together with your friends, one of whom is gluten-free. Of the options presented, choose the recipe that you are most likely to make.",
-                     "You are attending a New Year's Eve party and are asked to bring a side dish. Of the options presented, choose the recipe that you are most likely to bring."];
+                     "You are attending a New Year's Eve party and are asked to bring a side dish. Of the options presented, choose the recipe that you are most likely to bring.",
+                     "You are attending a family reunion potluck and are asked to bring a salad. Of the options presented, choose the recipe that you are most likely to make.",
+                     "You are going on a picnic with your friends and want to bring sandwiches. Of the options presented, choose the recipe that you are most likely to make."];
 
-  const displayRounds = [[0, 1, 2],
-                         [1, 2, 0],
-                         [2, 0, 1]];
+  const displayRounds = [[0, 1, 2, 3],
+                         [1, 2, 3, 0],
+                         [2, 3, 0, 1],
+                         [3, 2, 1, 0]];
   interface Recipe {
     id: number;
     type: string;
@@ -107,7 +112,7 @@ export const HomePage: React.FC = () => {
     if (temp > 1) {
       temp = 0;
       setGroupId(++groupId);
-      if (groupId === 6) temp = 2;
+      if (groupId === 8) temp = 2;
     }
     setIndex(temp);
   };
@@ -135,6 +140,8 @@ export const HomePage: React.FC = () => {
     else if (groupId === 3) recipes = shuffle(drink_recipes);
     else if (groupId === 4) recipes = shuffle(gluten_free_recipes);
     else if (groupId === 5) recipes = shuffle(side_recipes);
+    else if (groupId === 6) recipes = shuffle(potluck_recipes);
+    else if (groupId === 7) recipes = shuffle(picnic_recipes);
 
     setDisplayNum(displayRounds[displayRound][Math.floor(groupId/2)])
     // recipes = shuffle(recipes);
