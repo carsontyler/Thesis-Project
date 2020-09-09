@@ -37,7 +37,7 @@ export const DisclosureAndDirectionsComp: React.FC<DisclosureAndDirectionsProps>
                   selection. You can select recipes by clicking on them.
                 </p>
                 <p>
-                  Six (6) scenarios will be presented. You should select the
+                  Eight (8) scenarios will be presented. You should select the
                   recipe you think is the best for that scenario. There is no right answer, simply
                   pick the one you think looks the best or would be the most
                   delicious or is the easiest to cook - whatever you decide.
