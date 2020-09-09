@@ -36,8 +36,8 @@ export const HomePage: React.FC = () => {
   const [mainRecipes, setMainRecipes] = useState<Recipe[]>([]);
   let [currentRecipe, setCurrentRecipe] = useState<Recipe>();
   let [tempCurrentRecipe, setTempCurrentRecipe] = useState<Recipe>();
-  let [groupId, setGroupId] = useState(0);
-  let [index, setIndex] = useState(-2); // TOOD: SET TO -1
+  let [groupId, setGroupId] = useState(0); // SET TO 0
+  let [index, setIndex] = useState(-2); // TOOD: SET TO -2
   let [directionsAccepted, setDirectionsAccepted] = useState(false);
   let [data] = useState([{}])
   let [displayNum, setDisplayNum] = useState(0);
@@ -130,7 +130,7 @@ export const HomePage: React.FC = () => {
     let recipes: Recipe[] = [];
     if (groupId === 0 && index === 0) {
       // setDisplayRound(displayRounds[Math.floor(Math.random() * 3)]); 
-      let num : number = Math.floor(Math.random()*3);     
+      let num : number = Math.floor(Math.random()*4);     
       setDisplayRound(num);
     }
 

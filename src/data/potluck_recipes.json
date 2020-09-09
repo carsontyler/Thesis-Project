@@ -66,7 +66,7 @@
       "most_similar": [],
       "ratings": 31,
       "stars": 4.61,
-      "image": "NA",
+      "image": "https://images.media-allrecipes.com/images/79590.png",
       "ingredients": ["2 tablespoons rice vinegar", "1 tablespoon vegetable oil", "1 tablespoon sesame oil", "1 tablespoon brown sugar", "1 tablespoon soy sauce", "2 teaspoons minced fresh ginger root", "4 ounces buckwheat soba noodles", "2 teaspoons vegetable oil", "1  boneless skinless chicken breast, cut into thin bite-size strips", "1 teaspoon chopped garlic", "salt and ground black pepper to taste", "1 rib celery, sliced (optional)", "1  carrot, sliced", "½  red bell pepper, chopped", "¼ cup chopped fresh cilantro", "2 tablespoons chopped green onion", "1 tablespoon sesame seeds"],
       "directions": ["Whisk rice vinegar, 1 tablespoon vegetable oil, sesame oil, brown sugar, soy sauce, and ginger together in a large bowl until dressing is combined.", "Bring water to a boil in a large pot. Add soba noodles, stir, and return water to a boil. Boil noodles until tender, 4 to 5 minutes. Drain noodles in a colander under cold running water until cool, about 1 minute.", "Heat 2 teaspoons vegetable oil in a skillet over medium heat. Cook chicken breast pieces until no longer pink in the center and the juices run clear, 2 to 4 minutes. Add garlic, salt, and pepper; stir until fragrant, about 1 minute more.", "Toss soba noodles, chicken, celery, carrot, red pepper, cilantro, green onion, and sesame seeds together with dressing in large bowl."]
     },
@@ -78,7 +78,7 @@
       "most_similar": [],
       "ratings": 0,
       "stars": "Unrated",
-      "image": "NA",
+      "image": "https://images.media-allrecipes.com/images/79590.png",
       "ingredients": ["4  skinless, boneless chicken breasts, cut into bite-sized pieces", "½ cup honey", "¼ cup soy sauce", "¼ cup rice vinegar", "1 tablespoon sambal oelek (Indonesian red chile paste)", "1 (1 inch) piece ginger, grated", "½ teaspoon sesame oil", "2 cups water", "1 cup uncooked short-grain white rice", "2 tablespoons toasted sesame seeds", "1 tablespoon vegetable oil", "1 large onion, finely chopped", "2 cloves garlic, grated", "2 large mangoes, peeled and cubed", "¾ cup roasted salted cashews", "freshly ground black pepper"],
       "directions": ["Combine chicken, honey, soy sauce, rice vinegar, sambal oelek, ginger, and sesame oil in a large resealable plastic bag. Seal and place in the refrigerator to marinate, about 2 1/2 hours.", "Bring water to a boil in a small saucepan. Stir in rice. Reduce heat and simmer, covered, until rice is tender, about 15 minutes. Sprinkle sesame seeds over the surface of the rice. Continue cooking until water is completely absorbed, about 5 minutes more. Fluff rice with a fork to fully incorporate sesame seeds.", "Heat vegetable oil in a large skillet or wok over high heat. Cook and stir onion until browned, 5 to 10 minutes. Add chicken mixture, including marinade, and garlic; saute until chicken is no longer pink in the center and sauce coats chicken pieces, 5 to 8 minutes.", "Stir mangoes and cashews into the skillet until just warmed through, about 2 minutes. Serve over rice. Garnish with black pepper."]
     },
@@ -204,37 +204,26 @@
     {
       "id": 15,
       "type": "certain",
-      "recipe": 34373,
-      "title": "l-recipe/62292625/sunshine-potato-salad/",
-      "most_similar": "Sunshine Potato Salad",
-      "ratings": [
-        56792,
-        15491,
-        18139,
-        34645,
-        36434,
-        29977,
-        40414,
-        58692,
-        79245,
-        7522
-      ],
-      "stars": 0,
-      "image": 5,
-      "ingredients": "https://images.media-allrecipes.com/images/79590.png",
-      "directions": ["2 hard-boiled eggs", "3 cups of diced cooked potatoes", "1/2 c sliced celery", "2 T chopped onion", "1 T chopped green pepper", "1/4 c mayonnaise", "1-2 T prepared mustard", "1 tsp salt", "Dash pepper"]
+      "recipe": "l-recipe/62292625/sunshine-potato-salad/",
+      "title": "Sunshine Potato Salad",
+      "most_similar": [],
+      "ratings": 0,
+      "stars": 5,
+      "image": "https://images.media-allrecipes.com/images/79590.png",
+      "ingredients": ["2 hard-boiled eggs", "3 cups of diced cooked potatoes", "1/2 c sliced celery", "2 T chopped onion", "1 T chopped green pepper", "1/4 c mayonnaise", "1-2 T prepared mustard", "1 tsp salt", "Dash pepper"],
+      "directions": ["Combine ingredients, mix well.  Chill before serving."]
     },
     {
       "id": 16,
       "type": "certain",
-      "recipe": 44414,
-      "title": "l-recipe/62569370/egg-salad/",
-      "most_similar": "Egg Salad",
-      "ratings": [],
-      "stars": 0,
-      "image": 5,
-      "ingredients": "https://images.media-allrecipes.com/images/79590.png",
-      "directions": ["2 eggs", "1 tbspn. onion, finely chopped", "2 tbspn. mayonnaise", "½ tspn. mustard", "1 tspn. lemon juice", "salt & pepper"]
+      "recipe": "l-recipe/62569370/egg-salad/",
+      "title": "Egg Salad",
+      "most_similar": [],
+      "ratings": 0,
+      "stars": 5,
+      "image": "https://images.media-allrecipes.com/images/79590.png",
+      "ingredients": ["2 eggs", "1 tbspn. onion, finely chopped", "2 tbspn. mayonnaise", "½ tspn. mustard", "1 tspn. lemon juice", "salt & pepper"],
+      "directions": ["Place the eggs in a small pot with water and bring to a boil. Turn the heat down to low and cook for 12 minutes.", "Run cold water over the eggs until cooled and peel.", "Mash the eggs with a fork and mix with the remaining ingredients."]
     },
     {
       "id": 17,
@@ -346,14 +335,14 @@
     {
       "id": 25,
       "type": "certain",
-      "recipe": 20418,
-      "title": "20680/easy-mexican-casserole/",
-      "most_similar": "Easy Mexican Casserole",
-      "ratings": [],
-      "stars": 2397,
-      "image": 4.40550708770752,
-      "ingredients": "https://images.media-allrecipes.com/userphotos/560x315/5670908.jpg",
-      "directions": ["1 pound lean ground beef", "2 cups salsa", "1 (16 ounce) can chili beans, drained", "3 cups tortilla chips, crushed", "2 cups sour cream", "1 (2 ounce) can sliced black olives, drained", "1/2 cup chopped green onion", "1/2 cup chopped fresh tomato", "2 cups shredded Cheddar cheese"]
+      "recipe": "20680/easy-mexican-casserole/",
+      "title": "Easy Mexican Casserole",
+      "most_similar": [],
+      "ratings": 2397,
+      "stars": 4.40550708770752,
+      "image": "https://images.media-allrecipes.com/userphotos/560x315/5670908.jpg",
+      "ingredients": ["1 pound lean ground beef", "2 cups salsa", "1 (16 ounce) can chili beans, drained", "3 cups tortilla chips, crushed", "2 cups sour cream", "1 (2 ounce) can sliced black olives, drained", "1/2 cup chopped green onion", "1/2 cup chopped fresh tomato", "2 cups shredded Cheddar cheese"],
+      "directions": ["Preheat oven to 350 degrees F (175 degrees C).", "In a large skillet over medium-high heat, cook ground beef until no longer pink. Stir in salsa, reduce heat, and simmer 20 minutes, or until liquid is absorbed. Stir in beans, and heat through.", "Spray a 9x13 baking dish with cooking spray. Spread crushed tortilla chips in dish, and then spoon beef mixture over chips. Spread sour cream over beef, and sprinkle olives, green onion, and tomato over the sour cream. Top with Cheddar cheese.", "Bake in preheated oven for 30 minutes, or until hot and bubbly."]
     },
     {
       "id": 26,
@@ -501,14 +490,14 @@
     {
       "id": 37,
       "type": "certain",
-      "recipe": 15627,
-      "title": "220881/elbow-macaroni-and-kidney-bean-salad/",
-      "most_similar": "Elbow Macaroni and Kidney Bean Salad",
-      "ratings": [],
-      "stars": 20,
-      "image": 4.30000019073486,
-      "ingredients": "https://images.media-allrecipes.com/userphotos/560x315/816290.jpg",
-      "directions": ["1 cup elbow macaroni", "1 (15 ounce) can red kidney beans, drained and rinsed", "1/2 cup chopped celery", "1/2 cup light mayonnaise", "1/4 cup chopped onion", "2 tablespoons red wine vinegar, or to taste", "salt and ground black pepper to taste"]
+      "recipe": "220881/elbow-macaroni-and-kidney-bean-salad/",
+      "title": "Elbow Macaroni and Kidney Bean Salad",
+      "most_similar": [],
+      "ratings": 20,
+      "stars": 4.30000019073486,
+      "image": "https://images.media-allrecipes.com/userphotos/560x315/816290.jpg",
+      "ingredients": ["1 cup elbow macaroni", "1 (15 ounce) can red kidney beans, drained and rinsed", "1/2 cup chopped celery", "1/2 cup light mayonnaise", "1/4 cup chopped onion", "2 tablespoons red wine vinegar, or to taste", "salt and ground black pepper to taste"],
+      "directions": ["Bring a large pot of lightly salted water to a boil. Cook elbow macaroni in the boiling water, stirring occasionally, until cooked through but firm to the bite, 6 to 8 minutes. Drain and rinse with cold water.", "Combine cooked macaroni, kidney beans, celery, light mayonnaise, onion, red wine vinegar, salt, and black pepper in a bowl until well mixed. Chill in refrigerator for at least 2 hours."]
     },
     {
       "id": 38,
